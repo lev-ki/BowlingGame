@@ -238,7 +238,7 @@ Transform:
   m_Children:
   - {fileID: 127561636}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &30193818
 MonoBehaviour:
@@ -5581,12 +5581,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f34d2c1c95569244987dda8be3d1a76f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f34d2c1c95569244987dda8be3d1a76f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.84
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f34d2c1c95569244987dda8be3d1a76f,
         type: 3}
@@ -5596,7 +5596,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f34d2c1c95569244987dda8be3d1a76f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 31.183575
+      value: 18.788
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f34d2c1c95569244987dda8be3d1a76f,
         type: 3}
@@ -9395,6 +9395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bottle: {fileID: 1955228517}
+  liquidLevelBar: {fileID: 0}
   ballLauncher: {fileID: 602237209}
   ballsContainer: {fileID: 0}
   sandboxPins: {fileID: 0}
@@ -9417,12 +9418,14 @@ MonoBehaviour:
     type: 3}
   cleanerContainer: {fileID: 0}
   levels: []
+  currentLevelIndex: 0
   currentLevel: {fileID: 0}
   currentRound: {fileID: 0}
   gameData:
     gameStarted: 0
     ballsPresent: 0
     pinsPresent: 0
+    liquidRanOut: 0
     hasBottleFell: 0
     hasBottleTouchedAWall: 0
     maxBottleAngle: 0
@@ -9432,6 +9435,9 @@ MonoBehaviour:
     isSandboxMode: 0
     persistBottle: 0
   menuController: {fileID: 0}
+  CurrentLevel: {fileID: 0}
+  CurrentRound: {fileID: 0}
+  MaxRounds: {fileID: 0}
 --- !u!4 &1778151721
 Transform:
   m_ObjectHideFlags: 0
