@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: SlowBall 1
   m_EditorClassIdentifier: 
   ballsNumber: 1
-  ballSpeedMultiplier: 0.85
+  ballSpeedMultiplier: 1.5
   ballLaunchDelay: 1.5
   ballIntermediateLaunchDelays: []
   restartRoundOnly: 0
   resetPins: 0
+  resetBottle: 0
   fallTriggersCleaner: 0
   wallTouchIsFall: 0
   spillThreshold: 20

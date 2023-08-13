@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 738b540e5f324c58ab86cde6055dfa6b, type: 3}
+  m_Name: Gameplay
+  m_EditorClassIdentifier: 
+  subState: {fileID: 11400000, guid: c06f681cb13c7134a951e1902214ef14, type: 2}
+  defaultSubState: {fileID: 11400000, guid: c06f681cb13c7134a951e1902214ef14, type: 2}
+  transitions:
+  - source: {fileID: 11400000, guid: c06f681cb13c7134a951e1902214ef14, type: 2}
+    anySource: 0
+    reason: 6
+    target: {fileID: 11400000, guid: c06f681cb13c7134a951e1902214ef14, type: 2}
+  - source: {fileID: 11400000, guid: c06f681cb13c7134a951e1902214ef14, type: 2}
+    anySource: 0
+    reason: 3
+    target: {fileID: 11400000, guid: 959fa2d780a4ff2449609a92f18002cd, type: 2}
+  - source: {fileID: 11400000, guid: c06f681cb13c7134a951e1902214ef14, type: 2}
+    anySource: 0
+    reason: 4
+    target: {fileID: 11400000, guid: 959fa2d780a4ff2449609a92f18002cd, type: 2}
+  - source: {fileID: 11400000, guid: c06f681cb13c7134a951e1902214ef14, type: 2}
+    anySource: 0
+    reason: 5
+    target: {fileID: 11400000, guid: 959fa2d780a4ff2449609a92f18002cd, type: 2}
+  - source: {fileID: 11400000, guid: 959fa2d780a4ff2449609a92f18002cd, type: 2}
+    anySource: 0
+    reason: 11
+    target: {fileID: 11400000, guid: c06f681cb13c7134a951e1902214ef14, type: 2}

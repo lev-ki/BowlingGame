@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8878147b3c8a4423b4053604cf96fd44, type: 3}
+  m_Name: ResetPins
+  m_EditorClassIdentifier: 
+  subState: {fileID: 0}
+  defaultSubState: {fileID: 0}
+  transitions: []
+  pinPrefab: {fileID: 2116348813306971324, guid: d88d8733ecc5ace45a11bc3bcfa0613b,
+    type: 3}

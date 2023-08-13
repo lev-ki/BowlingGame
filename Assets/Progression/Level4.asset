@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9460770b4fb45d890cd98bcd1995646, type: 3}
+  m_Script: {fileID: 11500000, guid: b0352ea9d59bf884483112a7fcac7be5, type: 3}
   m_Name: Level4
   m_EditorClassIdentifier: 
-  rounds:
-  - {fileID: 11400000, guid: 054c21b00addd1c429df7f317d7c0173, type: 2}
+  rounds: []
   shouldBeRandomBallPosition: 1
-  ballPosition: 5
-  pinPositions: 010000000200000003000000040000000500000006000000070000000800000009000000
+  bottlePosition: 5
+  pinPositions: 

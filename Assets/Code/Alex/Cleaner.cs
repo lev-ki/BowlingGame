@@ -24,11 +24,11 @@ public class Cleaner : MonoBehaviour
     {
         transform.position = start;
         time = 0;
-        GameManager.Instance.gameData.isCleanerPresent = true;
+        OldGameManager.Instance.gameData.isCleanerPresent = true;
     }
 
     private void OnDestroy()
     {
-        GameManager.Instance.gameData.isCleanerPresent = false;
+        OldGameManager.Instance.gameData.isCleanerPresent = false;
     }
 }

@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f168315e7244f283416ae19b199a23, type: 3}
+  m_Name: RootState
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}
+  subState: {fileID: 0}
+  defaultSubState: {fileID: 11400000, guid: 7ec8214a7bd360245ba1893f315f3660, type: 2}
+  transitions:
+  - source: {fileID: 11400000, guid: 7ec8214a7bd360245ba1893f315f3660, type: 2}
+    anySource: 0
+    reason: 0
+    target: {fileID: 11400000, guid: cf09860d85cc5944ea840104fc1fe417, type: 2}
+  - source: {fileID: 11400000, guid: cf09860d85cc5944ea840104fc1fe417, type: 2}
+    anySource: 0
+    reason: 11
+    target: {fileID: 11400000, guid: ddbdb861ac29d1f4b9b87952ef6b0fa6, type: 2}
+  - source: {fileID: 11400000, guid: ddbdb861ac29d1f4b9b87952ef6b0fa6, type: 2}
+    anySource: 0
+    reason: 8
+    target: {fileID: 11400000, guid: 7accf399d60be6f4f9cb84c69ad55b00, type: 2}
+  - source: {fileID: 11400000, guid: 7accf399d60be6f4f9cb84c69ad55b00, type: 2}
+    anySource: 0
+    reason: 11
+    target: {fileID: 11400000, guid: 7ec8214a7bd360245ba1893f315f3660, type: 2}
+  - source: {fileID: 11400000, guid: ddbdb861ac29d1f4b9b87952ef6b0fa6, type: 2}
+    anySource: 0
+    reason: 7
+    target: {fileID: 11400000, guid: 194f91afde9f89d429309703f95ae4c7, type: 2}
+  - source: {fileID: 11400000, guid: 194f91afde9f89d429309703f95ae4c7, type: 2}
+    anySource: 0
+    reason: 11
+    target: {fileID: 11400000, guid: edb3eb5c13b63c84981a7f7b962709ea, type: 2}
+  - source: {fileID: 11400000, guid: edb3eb5c13b63c84981a7f7b962709ea, type: 2}
+    anySource: 0
+    reason: 9
+    target: {fileID: 11400000, guid: 17db929068e5300478c45696246fda20, type: 2}
+  - source: {fileID: 11400000, guid: edb3eb5c13b63c84981a7f7b962709ea, type: 2}
+    anySource: 0
+    reason: 10
+    target: {fileID: 11400000, guid: 44c3d9ebbf1d7a342ac88eb43689281e, type: 2}
+  - source: {fileID: 11400000, guid: 17db929068e5300478c45696246fda20, type: 2}
+    anySource: 0
+    reason: 11
+    target: {fileID: 11400000, guid: ddbdb861ac29d1f4b9b87952ef6b0fa6, type: 2}
+  - source: {fileID: 11400000, guid: 44c3d9ebbf1d7a342ac88eb43689281e, type: 2}
+    anySource: 0
+    reason: 11
+    target: {fileID: 11400000, guid: 7ec8214a7bd360245ba1893f315f3660, type: 2}

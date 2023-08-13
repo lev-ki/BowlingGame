@@ -23,15 +23,6 @@ public class PourLiquidToScore : MonoBehaviour
     public Transform waterFlowRoot;
     public ParticleSystem ParticlePrefab;
 
-    private void Start()
-    {
-        //ShowScore(90);
-    }
-    
-    private void Update()
-    {
-    }
-    
     public void Setup(float score)
     {
         float topWater = score / 90;
@@ -77,7 +68,7 @@ public class PourLiquidToScore : MonoBehaviour
         
         anim.Play("BottleBack");
         yield return new WaitForSeconds(2);
-        GameManager.Instance.menuController.OpenScoresPanel(score);
-        GameManager.Instance.menuController.ScoreToGameplay();
+        OldGameManager.Instance.menuController.OpenScoresPanel(score);
+        OldGameManager.Instance.menuController.ScoreToGameplay();
     }
 }
