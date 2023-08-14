@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SlowBall
   m_EditorClassIdentifier: 
   ballsNumber: 1
-  ballSpeedMultiplier: 2.91
+  ballSpeedMultiplier: 1
   ballLaunchDelay: 1
   ballIntermediateLaunchDelays: []
   restartRoundOnly: 0

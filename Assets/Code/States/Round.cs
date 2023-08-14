@@ -14,7 +14,10 @@ namespace Code.States
         public override void OnExit()
         {
             base.OnExit();
-            GameManager.Instance.StopCoroutine(ballsCoroutine);
+            if ( ballsCoroutine != null)
+            {
+                GameManager.Instance.StopCoroutine(ballsCoroutine);
+            }
             while (GameObjectsContainer.Instance.balls.Count > 0)
             {
                 Destroy(GameObjectsContainer.Instance.balls[0].gameObject);

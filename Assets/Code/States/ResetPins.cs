@@ -69,7 +69,7 @@ namespace Code.States
             foreach (int pinPosition in level.pinPositions)
             {
                 yield return new WaitForSeconds(0.2f);
-                Vector3 fallOffset = Vector3.up * (10 + Random.value);
+                Vector3 fallOffset = Vector3.up * (8 + Random.value);
 
                 if (pinPosition == level.bottlePosition)
                 {

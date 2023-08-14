@@ -105,14 +105,27 @@ namespace Code.Menu
 
         public void ShowCredits()
         {
-            raycastBlocker.SetActive(true);
             credits.SetActive(true);
             Block3dRaycast = true;
         }
         
         public void CloseCredits()
         {
-            
+            credits.SetActive(false);
+            Block3dRaycast = false;
+        }
+
+        public void OpenTutorial()
+        {
+            // TODO(Alex): fix
+            Time.timeScale = 0.0001f;
+            UIContainer.Instance.tutorialPanel.SetActive(true);
+        }
+
+        public void CloseTutorial()
+        {
+            Time.timeScale = 1;
+            UIContainer.Instance.tutorialPanel.SetActive(false);
         }
     }
 }

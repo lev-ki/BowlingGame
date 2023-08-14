@@ -60,6 +60,8 @@ namespace Code.DataContainers
         public TextMeshProUGUI currentRoundText;
         public TextMeshProUGUI maxRoundText;
 
+        public GameObject tutorialPanel;
+
         #endregion
     }
 }

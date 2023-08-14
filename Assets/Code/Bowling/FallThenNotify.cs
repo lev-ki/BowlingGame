@@ -12,12 +12,12 @@ namespace Code.Bowling
         
         private void OnEnable()
         {
-            // rb.constraints = AllowOnlyFall;
+            rb.constraints = AllowOnlyFall;
         }
 
         private void OnDisable()
         {
-            // rb.constraints = RigidbodyConstraints.None;
+            rb.constraints = RigidbodyConstraints.None;
         }
 
         private void OnCollisionEnter(Collision other)

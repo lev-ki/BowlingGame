@@ -57,7 +57,7 @@ namespace Code.Controls
                     }
                     float distance = Vector3.Distance(mainCamera.transform.position,
                         alternativeStartTarget.position);
-                    if (distance < 20)
+                    if (distance < 22)
                     {
                         grabPoint = alternativeStartTarget.position;
                         isDragging = true;
