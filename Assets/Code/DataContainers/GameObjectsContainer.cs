@@ -33,5 +33,7 @@ namespace Code.DataContainers
         public BallLauncher ballLauncher;
 
         public PitFallDetector pitFallDetector;
+
+        public Cleaner cleaner;
     }
 }

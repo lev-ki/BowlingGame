@@ -36,6 +36,8 @@ namespace Code.DataContainers
 
         public Animator pourLiquidAnimator;
         public Renderer jugWater;
+
+        public AudioSource poppingSoundSource;
         
         #endregion
 

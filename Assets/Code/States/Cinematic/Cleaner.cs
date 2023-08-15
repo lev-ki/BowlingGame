@@ -25,10 +25,13 @@ namespace Code.States.Cinematic
 
         private IEnumerator CinematicCoroutine()
         {
-            yield return new WaitForSeconds(1.5f);
-            Debug.Log("Cleaner Cinematic here");
+            GameObjectsContainer.Instance.cleaner.StartCleaning();
+            yield return new WaitForSeconds(2.5f);
+            UIContainer.Instance.UIController.FadeToBlack(0.75f, true);
+            GameObjectsContainer.Instance.mainPlayableBottle.DestroyPieces(0.76f);
+            yield return new WaitForSeconds(0.3f);
             DestroyBalls(0.2f);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
             GameManager.Instance.InvokeEvent(EventId.CinematicFinished);
         }
     }

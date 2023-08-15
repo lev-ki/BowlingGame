@@ -9,7 +9,7 @@ namespace Code.States
     public class ResetPins : BaseState
     {
         [SerializeField] private GameObject pinPrefab;
-        
+
         private int objectsFallen;
         private int objectsTotal;
 
@@ -71,7 +71,7 @@ namespace Code.States
             {
                 yield return new WaitForSeconds(0.2f);
                 Vector3 fallOffset = Vector3.up * (8 + Random.value);
-
+                PopIntoExistence pie;
                 if (pinPosition == level.bottlePosition)
                 {
                     if (!resetBottle)
@@ -92,10 +92,24 @@ namespace Code.States
                     {
                         goc.mainPlayableBottle.spillLiquid.LiquidLevel = 1;
                     }
+                    pie = goc.mainPlayableBottle.GetComponent<PopIntoExistence>();
+                    if (pie)
+                    {
+                        pie.ScalePopIntoExistence(0.2f);
+                        CinematicObjectsContainer.Instance.poppingSoundSource.pitch = Random.Range(0.5f, 1.5f);
+                        CinematicObjectsContainer.Instance.poppingSoundSource.Play();
+                    }
                     continue;
                 }
 
-                Instantiate(pinPrefab, goc.startingPinPositions[pinPosition].position + fallOffset, Quaternion.identity, goc.pinsParent);
+                GameObject go = Instantiate(pinPrefab, goc.startingPinPositions[pinPosition].position + fallOffset, Quaternion.identity, goc.pinsParent);
+                pie = go.GetComponent<PopIntoExistence>();
+                if (pie)
+                {
+                    pie.ScalePopIntoExistence(0.2f);
+                    CinematicObjectsContainer.Instance.poppingSoundSource.Play();
+                    CinematicObjectsContainer.Instance.poppingSoundSource.pitch = Random.Range(0.5f, 1.5f);
+                }
             }
         }
     }

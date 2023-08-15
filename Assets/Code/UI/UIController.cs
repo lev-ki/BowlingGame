@@ -1,5 +1,7 @@
 ﻿using Code.DataContainers;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 
 namespace Code.Menu
 {
@@ -11,8 +13,9 @@ namespace Code.Menu
         [SerializeField] private GameObject quitPanel;
         [SerializeField] private GameObject credits;
 
-
         [SerializeField] private Camera mainCamera;
+
+        [SerializeField] private Image blackFadeImage;
 
         private bool allowGameplayActions = false;
         public bool AllowGameplayActions
@@ -159,6 +162,20 @@ namespace Code.Menu
         {
             // TODO(anyone): make this work
             //GameManager.Instance.InvokeEvent(EventId.PauseMenuSelected);
+        }
+
+        public void FadeToBlack(float duration, bool fadeOutAfter = true)
+        {
+            blackFadeImage.DOFade(1, duration);
+            if (fadeOutAfter)
+            {
+                DOVirtual.DelayedCall(duration + 0.5f, ()=> { FadeFromBlack(duration); });
+            }
+        }
+
+        public void FadeFromBlack(float duration)
+        {
+            blackFadeImage.DOFade(0, duration);
         }
     }
 }

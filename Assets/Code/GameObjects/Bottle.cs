@@ -42,10 +42,19 @@ namespace Code.GameObjects
         
         #endregion
 
+        public void DestroyPieces(float delay)
+        {
+            if (brokenBottleInstance)
+            {
+                Destroy(brokenBottleInstance, delay);
+                brokenBottleInstance = null;
+            }
+        }
+
         public void ResetBottle()
         {
             rb.isKinematic = false;
-            Destroy(brokenBottleInstance);
+            DestroyPieces(0);
             intactBottle.SetActive(true);
             IsBroken = false;
         }
@@ -65,7 +74,7 @@ namespace Code.GameObjects
                 Rigidbody childRB = child.GetComponent<Rigidbody>();
                 if (childRB)
                 {
-                    childRB.AddForce(Random.insideUnitSphere * bottleBreakPiecesScatterForce);
+                    childRB.AddForce((Random.insideUnitSphere + Vector3.up * Random.Range(0, 1))* bottleBreakPiecesScatterForce);
                     childRB.AddForce(-breakImpulse * 0.1f, ForceMode.Impulse);
                 }
             }
