@@ -123,22 +123,38 @@ public class CustomCameraController : MonoBehaviour
 
     public Vector3 SmoothMoveToPos(Transform from, Transform to, Transform secondaryTarget)
     {
+        if (GameManager.Instance.IsPaused)
+        {
+            return transform.position;
+        }
         Vector3 followPosition = to.position * primaryToSecondaryRatio + secondaryTarget.position * (1 - primaryToSecondaryRatio);
         return Smooth(transform.position, followPosition, moveSmoothTime, Time.deltaTime); 
     }
 
     public Quaternion SmoothRotate(Transform from, Transform to)
     {
+        if (GameManager.Instance.IsPaused)
+        {
+            return from.rotation;
+        }
         return Quaternion.Lerp(from.rotation, to.rotation, Time.deltaTime * moveSpeed);
     }
 
     public Quaternion SmoothLookAt(Transform from, Transform to)
     {
+        if (GameManager.Instance.IsPaused)
+        {
+            return from.rotation;
+        }
         return Quaternion.RotateTowards(from.rotation, Quaternion.LookRotation(to.position - from.position), Time.deltaTime * lookFollowSpeed);
     }
 
     public void Zoom(float zoomInput)
     {
+        if (GameManager.Instance.IsPaused)
+        {
+            return;
+        }
         cameraOffset.z = Mathf.Clamp(cameraOffset.z - zoomInput, -maxZoom, -minZoom);
         Vector3 newPos = Vector3.Lerp( targetCamera.transform.localPosition, cameraOffset, Time.deltaTime * zoomSpeed );
         targetCamera.transform.localPosition = newPos;
@@ -146,6 +162,10 @@ public class CustomCameraController : MonoBehaviour
 
     public bool CalculatePosition()
     {
+        if (GameManager.Instance.IsPaused)
+        {
+            return false;
+        }
         Vector3 oldPosition = targetCamera.transform.localPosition;
         Vector3 targetPosition = cameraParent.transform.position - targetCamera.transform.forward * (-cameraOffset.z + collisionOffset);
         if(Physics.Linecast(cameraParent.transform.position, targetPosition, out camHit, layerMask) && !camHit.collider.isTrigger)
@@ -315,6 +335,10 @@ public class CustomCameraController : MonoBehaviour
     Vector3 GetMouseInput()
     {
         Vector3 inputInfo = new Vector3();
+        if (GameManager.Instance.IsPaused)
+        {
+            return inputInfo;
+        }
         //if (Input.GetMouseButton(0))
         {
 

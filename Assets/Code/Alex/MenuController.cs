@@ -78,19 +78,19 @@ namespace Code.Alex
                     {
                         switch (target.optionType)
                         {
-                            case Menu.MenuController.OptionType.Play:
+                            case Menu.UIController.OptionType.Play:
                                 StartGame();
                                 break;
-                            case Menu.MenuController.OptionType.Sandbox:
+                            case Menu.UIController.OptionType.Sandbox:
                                 StartSandbox();
                                 break;
-                            case Menu.MenuController.OptionType.Settings:
+                            case Menu.UIController.OptionType.Settings:
                                 Settings();
                                 break;
-                            case Menu.MenuController.OptionType.Credits:
+                            case Menu.UIController.OptionType.Credits:
                                 Credits();
                                 break;
-                            case Menu.MenuController.OptionType.Quit:
+                            case Menu.UIController.OptionType.Quit:
                                 Quit();
                                 break;
                         }

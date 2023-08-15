@@ -3,41 +3,39 @@ using UnityEngine;
 
 namespace Code.Menu
 {
-    public class MenuController : MonoBehaviour
+    public class UIController : MonoBehaviour
     {
         public enum OptionType { Play, Sandbox, Settings, Credits, Quit, };
         private RaycastTarget currentlySelected;
-        
-        [SerializeField] private GameObject raycastBlocker;
+
         [SerializeField] private GameObject quitPanel;
         [SerializeField] private GameObject credits;
 
-        private bool Block3dRaycast
-        {
-            get => raycastBlocker.activeSelf;
-            set => raycastBlocker.SetActive(value);
-        }
-        
+
         [SerializeField] private Camera mainCamera;
 
         private bool allowGameplayActions = false;
-        public bool AllowGameplayActions => allowGameplayActions;
-        
+        public bool AllowGameplayActions
+        {
+            get => allowGameplayActions;
+            set
+            {
+                allowGameplayActions = value;
+            }
+        }
+
         private void Update()
         {
             if (InputManager.Instance.PauseInputActivated())
             {
                 if (allowGameplayActions)
                 {
-                    //TogglePause(!isPaused);
+                    OpenPausePanel();
                 }
             }
             Ray ray = mainCamera.ScreenPointToRay(InputManager.Instance.cursorPosition);
-            if (Block3dRaycast)
-            {
-                return;
-            }
-            if (Physics.Raycast(ray, out var hit, 100))
+
+            if (!InputManager.Instance.block3DRaycast && Physics.Raycast(ray, out var hit, 100))
             {
                 RaycastTarget target = hit.transform.gameObject.GetComponent<RaycastTarget>();
 
@@ -78,17 +76,17 @@ namespace Code.Menu
                 }
             }
         }
-        
+
         public void Quit()
         {
             quitPanel.SetActive(true);
-            Block3dRaycast = true;
+            InputManager.Instance.block3DRaycast = true;
         }
 
         public void DenyQuit()
         {
             quitPanel.SetActive(false);
-            Block3dRaycast = false;
+            InputManager.Instance.block3DRaycast = false;
         }
 
         public void ConfirmQuit()
@@ -107,7 +105,7 @@ namespace Code.Menu
         {
             // todo
         }
-        
+
         public void CloseSettings()
         {
             // todo
@@ -116,37 +114,51 @@ namespace Code.Menu
         public void ShowCredits()
         {
             credits.SetActive(true);
-            Block3dRaycast = true;
+            InputManager.Instance.block3DRaycast = true;
         }
-        
+
         public void CloseCredits()
         {
             credits.SetActive(false);
-            Block3dRaycast = false;
+            InputManager.Instance.block3DRaycast = false;
         }
 
         public void OpenTutorial()
         {
             UIContainer.Instance.tutorialPanel.SetActive(true);
+            GameManager.Instance.SetPause(true, "tutorial");
+            InputManager.Instance.block3DRaycast = true;
         }
 
         public void CloseTutorial()
         {
             UIContainer.Instance.tutorialPanel.SetActive(false);
-            if ( !UIContainer.Instance.ftuxCompleted )
+            if (!UIContainer.Instance.ftuxCompleted)
             {
                 UIContainer.Instance.ftuxCompleted = true;
             }
+            GameManager.Instance.SetPause(false, "tutorial");
+            InputManager.Instance.block3DRaycast = false;
         }
 
         public void OpenPausePanel()
         {
             UIContainer.Instance.pausePanel.SetActive(true);
+            GameManager.Instance.SetPause(true, "uiPause");
+            InputManager.Instance.block3DRaycast = true;
         }
 
         public void ClosePausePanel()
         {
             UIContainer.Instance.pausePanel.SetActive(false);
+            GameManager.Instance.SetPause(false, "uiPause");
+            InputManager.Instance.block3DRaycast = false;
+        }
+
+        public void ToMainMenu()
+        {
+            // TODO(anyone): make this work
+            //GameManager.Instance.InvokeEvent(EventId.PauseMenuSelected);
         }
     }
 }

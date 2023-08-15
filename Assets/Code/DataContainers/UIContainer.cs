@@ -37,7 +37,7 @@ namespace Code.DataContainers
 
         #region logic
 
-        public MenuController menuController;
+        public UIController UIController;
 
         #endregion
 

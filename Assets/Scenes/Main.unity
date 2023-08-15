@@ -278,18 +278,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &377768368 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2044798702264355810, guid: dc69f84e06172c24baa33a9483ae0fc6,
+--- !u!1 &297909040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4444041372966582967, guid: dc69f84e06172c24baa33a9483ae0fc6,
     type: 3}
   m_PrefabInstance: {fileID: 529826994566349718}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11570888b32c4594987f3d52da3a7947, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &425060338 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5365928065131411104, guid: edbe38d1a70c0a64e950caef066830d3,
@@ -443,6 +437,18 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 8487495270173346209}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1198002768 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2667642783977739280, guid: dc69f84e06172c24baa33a9483ae0fc6,
+    type: 3}
+  m_PrefabInstance: {fileID: 529826994566349718}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11570888b32c4594987f3d52da3a7947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1391174313 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6122470910721801012, guid: dc69f84e06172c24baa33a9483ae0fc6,
@@ -492,7 +498,7 @@ MonoBehaviour:
   tutorialSandbox3d: {fileID: 1959761999}
   mainMenu3d: {fileID: 919132148960935219}
   liquidLevelImage: {fileID: 1805661915503585275}
-  menuController: {fileID: 377768368}
+  UIController: {fileID: 1198002768}
   scorePanel: {fileID: 8335935105155744070}
   star1: {fileID: 925056128727730152}
   star2: {fileID: 1626434557430632429}
@@ -506,7 +512,7 @@ MonoBehaviour:
   currentRoundText: {fileID: 3604569589442064321}
   maxRoundText: {fileID: 6973652182879513279}
   tutorialPanel: {fileID: 1940412925}
-  pausePanel: {fileID: 0}
+  pausePanel: {fileID: 297909040}
   ftuxCompleted: 0
 --- !u!114 &1559728008
 MonoBehaviour:
@@ -881,6 +887,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2667642783977739280, guid: dc69f84e06172c24baa33a9483ae0fc6,
+        type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 127561635}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

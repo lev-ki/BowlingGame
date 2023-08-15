@@ -7216,10 +7216,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: TogglePause
-        m_Mode: 6
+      - m_Target: {fileID: 2667642783977739280}
+        m_TargetAssemblyTypeName: Code.Menu.UIController, Assembly-CSharp
+        m_MethodName: ClosePausePanel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7228,9 +7228,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: ShowMainMenu
+      - m_Target: {fileID: 2667642783977739280}
+        m_TargetAssemblyTypeName: Code.Menu.UIController, Assembly-CSharp
+        m_MethodName: ToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8072,8 +8072,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2044798702264355810}
-        m_TargetAssemblyTypeName: Code.Menu.MenuController, Assembly-CSharp
+      - m_Target: {fileID: 2667642783977739280}
+        m_TargetAssemblyTypeName: Code.Menu.UIController, Assembly-CSharp
         m_MethodName: CloseTutorial
         m_Mode: 1
         m_Arguments:
@@ -8554,8 +8554,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2044798702264355810}
-        m_TargetAssemblyTypeName: Code.Menu.MenuController, Assembly-CSharp
+      - m_Target: {fileID: 2667642783977739280}
+        m_TargetAssemblyTypeName: Code.Menu.UIController, Assembly-CSharp
         m_MethodName: ConfirmQuit
         m_Mode: 1
         m_Arguments:
@@ -11870,9 +11870,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7323079791010029890}
-  - component: {fileID: 2044798702264355810}
+  - component: {fileID: 2667642783977739280}
   m_Layer: 0
-  m_Name: MenuController
+  m_Name: UIController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11896,7 +11896,7 @@ Transform:
   m_Father: {fileID: 807381454567712305}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2044798702264355810
+--- !u!114 &2667642783977739280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14319,8 +14319,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2044798702264355810}
-        m_TargetAssemblyTypeName: Code.Menu.MenuController, Assembly-CSharp
+      - m_Target: {fileID: 2667642783977739280}
+        m_TargetAssemblyTypeName: Code.Menu.UIController, Assembly-CSharp
         m_MethodName: DenyQuit
         m_Mode: 1
         m_Arguments:
@@ -17434,8 +17434,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2044798702264355810}
-        m_TargetAssemblyTypeName: Code.Menu.MenuController, Assembly-CSharp
+      - m_Target: {fileID: 2667642783977739280}
+        m_TargetAssemblyTypeName: Code.Menu.UIController, Assembly-CSharp
         m_MethodName: CloseCredits
         m_Mode: 1
         m_Arguments:
@@ -18552,8 +18552,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+      - m_Target: {fileID: 2667642783977739280}
+        m_TargetAssemblyTypeName: Code.Menu.UIController, Assembly-CSharp
         m_MethodName: OpenTutorial
         m_Mode: 1
         m_Arguments:
@@ -18836,10 +18836,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: TogglePause
-        m_Mode: 6
+      - m_Target: {fileID: 2667642783977739280}
+        m_TargetAssemblyTypeName: Code.Menu.UIController, Assembly-CSharp
+        m_MethodName: ClosePausePanel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -8,9 +8,10 @@ namespace Code.States
     {
         public override void OnEnter()
         {
+            UIContainer.Instance.UIController.AllowGameplayActions = true;
             if ( !UIContainer.Instance.ftuxCompleted )
             {
-                UIContainer.Instance.menuController.OpenTutorial();
+                UIContainer.Instance.UIController.OpenTutorial();
             }
             RefillBottle();
             ShowGameplayUI();
@@ -21,6 +22,7 @@ namespace Code.States
         {
             base.OnExit();
             HideGameplayUI();
+            UIContainer.Instance.UIController.AllowGameplayActions = false;
         }
 
         private void ShowGameplayUI()

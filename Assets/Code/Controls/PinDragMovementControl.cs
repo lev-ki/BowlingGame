@@ -42,8 +42,12 @@ namespace Code.Controls
         private void Update()
         {
             Timer -= Time.deltaTime;
-            if (Timer > 0)
+            if(InputManager.Instance.block3DRaycast || Timer > 0)
             {
+                if (dragLine.positionCount != 0)
+                {
+                    dragLine.positionCount = 0;
+                }
                 return;
             }
             if (InputManager.Instance.PrimaryActionActivated())

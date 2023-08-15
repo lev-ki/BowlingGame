@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Code.States;
 using UnityEngine;
 
@@ -23,6 +24,7 @@ namespace Code
 
         private void Start()
         {
+            pauseReasons = new List<string>();
             rootGameState.OnEnter();
         }
 
@@ -33,6 +35,41 @@ namespace Code
         {
             Debug.Log(eventId);
             rootGameState.InvokeEvent(eventId);
+        }
+
+
+        private List<string> pauseReasons;
+        public bool IsPaused { get; private set; }
+
+        public void SetPause(bool newPausedValue, string reason = "generic")
+        {
+            // try pausing
+            if (newPausedValue)
+            {
+                if (pauseReasons.Contains(reason))
+                {
+                    return; // already paused with this reason
+                }
+                pauseReasons.Add(reason);
+                if (!IsPaused)
+                {
+                    Time.timeScale = 0;
+                    IsPaused = true;
+                }
+            }
+            // try unpausing
+            else
+            {
+                if (pauseReasons.Contains(reason))
+                {
+                    pauseReasons.Remove(reason);
+                    if (pauseReasons.Count == 0)
+                    {
+                        Time.timeScale = 1;
+                        IsPaused = false;
+                    }
+                }
+            }
         }
     }
     

@@ -15,7 +15,7 @@ namespace Code.Menu
         }
 
         public List<HighligthTarget> highlightTargets;
-        public MenuController.OptionType optionType;
+        public UIController.OptionType optionType;
         public GameObject lightSource;
         public AudioSource neonAudio;
         private Coroutine lightsCoroutine;

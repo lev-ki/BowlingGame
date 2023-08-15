@@ -22,7 +22,7 @@ namespace Code
         #endregion
 
         public Vector3 cursorPosition;
-
+        public bool block3DRaycast = false;
         void Start()
         {
 
