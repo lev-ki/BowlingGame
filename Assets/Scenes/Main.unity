@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorPosition: {x: 0, y: 0, z: 0}
+  block3DRaycast: 0
 --- !u!4 &297781549
 Transform:
   m_ObjectHideFlags: 0
@@ -437,6 +438,12 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 8487495270173346209}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1111713374 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1098336753890823153, guid: dc69f84e06172c24baa33a9483ae0fc6,
+    type: 3}
+  m_PrefabInstance: {fileID: 529826994566349718}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1198002768 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2667642783977739280, guid: dc69f84e06172c24baa33a9483ae0fc6,
@@ -503,7 +510,7 @@ MonoBehaviour:
   star1: {fileID: 925056128727730152}
   star2: {fileID: 1626434557430632429}
   star3: {fileID: 8633370357252711359}
-  neonAudio: {fileID: 0}
+  neonAudio: {fileID: 1111713374}
   scoreText: {fileID: 1346298597942049499}
   scorePanelButtonText: {fileID: 2943944834116431789}
   scorePanelCurrentLevelText: {fileID: 3825444106854203851}

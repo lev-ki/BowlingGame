@@ -53,7 +53,7 @@ namespace Code.States
                 ui.scorePanelButtonText.text = "To Menu";
             }
             ui.scoreText.text = ((int)scaledScore).ToString();
-            // ui.neonAudio.Play();
+            ui.neonAudio.Play();
             Color star1Color = ui.star1.color;
             Color star2Color = ui.star2.color;
             Color star3Color = ui.star3.color;

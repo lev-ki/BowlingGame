@@ -23,16 +23,6 @@ namespace Code.States.Cinematic
             {
                 _customActions[pair].Invoke();
             }
-
-            /* TODO(Lev): StartCoroutine and handle transition
-             * Different transitions are different scriptable objects (SO) in unity so it's
-             * generally possible to add smth like Animation field and assign different
-             * values for each SO. It's up to you.
-             * Also, do not forget to call
-             * GameManager.Instance.InvokeEvent(EventId.CinematicFinished);
-             * In parent game states (root for most cases) it'll be a mapping to catch this and actually
-             * transition to the next state
-             */
         }
 
         public override void OnExit()

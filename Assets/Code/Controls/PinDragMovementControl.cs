@@ -19,6 +19,7 @@ namespace Code.Controls
         private bool isDragging;
 
         [SerializeField] private Transform alternativeStartTarget;
+        [SerializeField] private Transform currentDragPoint;
         public bool alternativeMode = true;
         [SerializeField] private Image fillImage1, fillImage2;
         private float timer = -1;
@@ -61,12 +62,13 @@ namespace Code.Controls
                     }
                     float distance = Vector3.Distance(mainCamera.transform.position,
                         alternativeStartTarget.position);
-                    if (distance < 22)
+                    if (distance > 22)
                     {
-                        grabPoint = alternativeStartTarget.position;
-                        isDragging = true;
-                        grabDistance = distance;
+                        return;
                     }
+                    grabPoint = alternativeStartTarget.position;
+                    isDragging = true;
+                    grabDistance = distance;
                 }
                 else
                 {
@@ -74,6 +76,7 @@ namespace Code.Controls
                     grabPoint = hitInfo.point;
                     grabDistance = hitInfo.distance;
                 }
+                currentDragPoint.position = grabPoint;
             }
             else if (InputManager.Instance.PrimaryActionReleased() && isDragging) // else here to prevent same frame fast click
             {
@@ -97,6 +100,7 @@ namespace Code.Controls
             // draw
             if (InputManager.Instance.PrimaryActionActive() && isDragging)
             {
+                grabPoint = currentDragPoint.position;
                 dragLine.positionCount = 2;
                 dragLine.SetPositions(new [] // TODO(Alex): limit line length according to maxForce
                 {
