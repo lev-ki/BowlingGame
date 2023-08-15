@@ -46,9 +46,9 @@ namespace Code.Controls
             {
                 return;
             }
-            if (Input.GetButtonDown("Fire1"))
+            if (InputManager.Instance.PrimaryActionActivated())
             {
-                bool didHit = Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition), out var hitInfo, 1000, bottleLayerMask);
+                bool didHit = Physics.Raycast(mainCamera.ScreenPointToRay(InputManager.Instance.cursorPosition), out var hitInfo, 1000, bottleLayerMask);
                 if (!didHit)
                 {
                     if (!alternativeMode)
@@ -71,9 +71,9 @@ namespace Code.Controls
                     grabDistance = hitInfo.distance;
                 }
             }
-            else if (Input.GetButtonUp("Fire1") && isDragging) // else here to prevent same frame fast click
+            else if (InputManager.Instance.PrimaryActionReleased() && isDragging) // else here to prevent same frame fast click
             {
-                Vector3 releasePoint = mainCamera.ScreenPointToRay(Input.mousePosition).GetPoint(grabDistance);
+                Vector3 releasePoint = mainCamera.ScreenPointToRay(InputManager.Instance.cursorPosition).GetPoint(grabDistance);
                 Vector3 force = grabPoint - releasePoint;
                 if (force.sqrMagnitude > 0.01)
                 {
@@ -91,13 +91,13 @@ namespace Code.Controls
             }
         
             // draw
-            if (Input.GetButton("Fire1") && isDragging)
+            if (InputManager.Instance.PrimaryActionActive() && isDragging)
             {
                 dragLine.positionCount = 2;
                 dragLine.SetPositions(new [] // TODO(Alex): limit line length according to maxForce
                 {
                     grabPoint,
-                    mainCamera.ScreenPointToRay(Input.mousePosition).GetPoint(grabDistance)
+                    mainCamera.ScreenPointToRay(InputManager.Instance.cursorPosition).GetPoint(grabDistance)
                 });
             }
         }

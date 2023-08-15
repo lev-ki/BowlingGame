@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Code;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -59,7 +60,7 @@ public class CustomCameraController : MonoBehaviour
     protected Plane Plane;
 
     private float angleX = 0;
-    private Vector3 input;
+    private Vector3 inputVector;
     private bool wasPinchingLastFrame;
     private float lastFrameDistance;
     private RaycastHit camHit;
@@ -160,7 +161,7 @@ public class CustomCameraController : MonoBehaviour
 
     public void RotateCamera()
     {
-        if (!Input.GetMouseButton(1))
+        if (!InputManager.Instance.CameraAdjustmentInputActive())
         {
             return;
         }
@@ -170,38 +171,38 @@ public class CustomCameraController : MonoBehaviour
             angleX -= 360;
         }
         // float clampedAngle =
-        if(angleX < 90 && angleX - input.y > highVerticalLimit)
+        if(angleX < 90 && angleX - inputVector.y > highVerticalLimit)
         {
-            input.y = -(highVerticalLimit - angleX);
+            inputVector.y = -(highVerticalLimit - angleX);
         } 
-        if(angleX - input.y < lowVerticalLimit)
+        if(angleX - inputVector.y < lowVerticalLimit)
         // if(angleX > 90 && angleX + input.y < 350 )
         {
-            input.y = -(lowVerticalLimit - angleX);
+            inputVector.y = -(lowVerticalLimit - angleX);
             // input.x = 350 - cameraParent.eulerAngles.x;
         }
         // if(cameraParent.eulerAngles.x > 90)
         // {
             // input.y = -(350 - cameraParent.eulerAngles.x);
         // }
-        cameraParent.eulerAngles = new Vector3(angleX - input.y , cameraParent.eulerAngles.y + input.x, 0);
+        cameraParent.eulerAngles = new Vector3(angleX - inputVector.y , cameraParent.eulerAngles.y + inputVector.x, 0);
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        input = GetControllerInput();
-        if (Input.touchSupported && Application.platform != RuntimePlatform.WebGLPlayer)
+        inputVector = GetControllerInput();
+        if (false)//Input.touchSupported && Application.platform != RuntimePlatform.WebGLPlayer)
         {
-            input += GetTouchInput();
+            inputVector += GetTouchInput();
         }
         else 
         {
-            input += GetMouseInput();
+            inputVector += GetMouseInput();
         }
         // text.text = "x:" + input.x + ";\n y:" + input.y + ";\n z:" + input.z;
-        input.x *= rotationSpeed * Time.deltaTime / Time.timeScale * (inverted ? -1 : 1);
-        input.y *= rotationSpeed * Time.deltaTime / Time.timeScale * (inverted ? -1 : 1);
+        inputVector.x *= rotationSpeed * Time.deltaTime / Time.timeScale * (inverted ? -1 : 1);
+        inputVector.y *= rotationSpeed * Time.deltaTime / Time.timeScale * (inverted ? -1 : 1);
         switch(currentCameraMode)
         {
             case CameraMode.Fixed:
@@ -230,7 +231,7 @@ public class CustomCameraController : MonoBehaviour
             case CameraMode.Follow:
                 cameraParent.position = SmoothMoveToPos(cameraParent, currentTarget, secondaryTarget);
                 //cameraParent.rotation = SmoothLookAt(cameraParent, secondaryTarget);
-                Zoom(input.z);
+                Zoom(inputVector.z);
                 break;
 
             case CameraMode.Orbit:
@@ -238,7 +239,7 @@ public class CustomCameraController : MonoBehaviour
                 RotateCamera();
                 if(secondaryFollow)
                 {
-                    if(input.magnitude > 0)
+                    if(inputVector.magnitude > 0)
                     {
                         // secondaryFollow = false;
                     }
@@ -247,7 +248,7 @@ public class CustomCameraController : MonoBehaviour
                         cameraParent.rotation = SmoothLookAt(cameraParent, secondaryTarget);
                     }
                 }
-                Zoom(input.z);
+                Zoom(inputVector.z);
                 CalculatePosition();
             break;
         }
@@ -256,6 +257,7 @@ public class CustomCameraController : MonoBehaviour
     Vector3 GetTouchInput()
     {
         Vector3 inputInfo = new Vector3();
+        /*
         if (Input.touchCount == 1)
         {
             
@@ -287,7 +289,7 @@ public class CustomCameraController : MonoBehaviour
         // {
         //     wasPinchingLastFrame = false;
         //     lastFrameDistance = 0;
-        // }
+        // }*/
         return inputInfo;
     }
 
@@ -315,13 +317,34 @@ public class CustomCameraController : MonoBehaviour
         Vector3 inputInfo = new Vector3();
         //if (Input.GetMouseButton(0))
         {
-            
-                inputInfo.x = Input.GetAxis("Mouse X");
-                inputInfo.y = Input.GetAxis("Mouse Y");
-           
+
+            inputInfo.x = InputManager.Instance.GetCursorDeltaX();
+            inputInfo.y = InputManager.Instance.GetCursorDeltaY();
+
         }
-        inputInfo.z = - Input.mouseScrollDelta.y * scrollSpeed * Time.deltaTime / Time.timeScale;
+        inputInfo.z = - InputManager.Instance.GetZoomDelta().y * scrollSpeed * Time.deltaTime / Time.timeScale;
 
         return inputInfo;
+    }
+
+    public void SetOrbitTarget( Transform target, Vector3 offset )
+    {
+        currentTarget = target;
+        secondaryTarget = target;
+        defaultOrbitTarget = target;
+        cameraOffset = offset;
+        currentCameraMode = CameraMode.Orbit;
+        futureCameraMode = CameraMode.Orbit;
+    }
+
+    public void SetFixedTarget( Transform target, Vector3 offset )
+    {
+        currentTarget = target;
+        secondaryTarget = target;
+        defaultOrbitTarget = target;
+        cameraOffset = offset;
+        currentCameraMode = CameraMode.Fixed;
+        futureCameraMode = CameraMode.Fixed;
+        targetCamera.transform.position = transform.position;
     }
 }

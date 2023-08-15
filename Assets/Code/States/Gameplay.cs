@@ -8,6 +8,10 @@ namespace Code.States
     {
         public override void OnEnter()
         {
+            if ( !UIContainer.Instance.ftuxCompleted )
+            {
+                UIContainer.Instance.menuController.OpenTutorial();
+            }
             RefillBottle();
             ShowGameplayUI();
             base.OnEnter();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Code.DataContainers;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Code.States.Cinematic
 {
@@ -22,7 +23,7 @@ namespace Code.States.Cinematic
             {
                 _customActions[pair].Invoke();
             }
-            
+
             /* TODO(Lev): StartCoroutine and handle transition
              * Different transitions are different scriptable objects (SO) in unity so it's
              * generally possible to add smth like Animation field and assign different
@@ -66,42 +67,61 @@ namespace Code.States.Cinematic
         {
             {new(CameraLocation.Menu, CameraLocation.Game), CustomActionFromMenuToGame},
             {new(CameraLocation.Game, CameraLocation.Score), CustomActionFromGameToScore},
-            {new(CameraLocation.Score, CameraLocation.Game), CustomActionFromMenuToGame},
+            {new(CameraLocation.Score, CameraLocation.Game), CustomActionFromScoreToGame},
         };
         
         private static void CustomActionFromMenuToGame()
         {
-            // TODO(Lev): redo! this is only for testing purpose
-            // we might want to wait some time after firing CinematicFinished event before returning camera control to bottle
-            // so it won't be camera jumping to bottle hideout. Another way is to move this set to ResetPins
+            float transitionDuration = 1f;
+            float postTransitionDelay = 2f;
             var coc = CinematicObjectsContainer.Instance;
             var bottleTransform = GameObjectsContainer.Instance.mainPlayableBottle.transform;
-            coc.customCameraController.currentTarget = bottleTransform;
-            coc.customCameraController.secondaryTarget = bottleTransform;
-            coc.customCameraController.defaultOrbitTarget = bottleTransform;
-            coc.customCameraController.cameraOffset = new Vector3(0, 5, -12);
-            coc.customCameraController.currentCameraMode = CustomCameraController.CameraMode.Orbit;
-            coc.customCameraController.futureCameraMode = CustomCameraController.CameraMode.Orbit;
-            GameManager.Instance.InvokeEvent(EventId.CinematicFinished);
+
+            coc.cameraFollowTarget.position = coc.cameraMenuPosition.position;
+            coc.cameraFollowTarget.rotation = coc.cameraMenuPosition.rotation;
+            coc.cameraFollowTarget.DOMove(coc.cameraGameplayPosition.position, transitionDuration);
+            coc.cameraFollowTarget.DORotateQuaternion(coc.cameraGameplayPosition.rotation, transitionDuration);
+
+            Sequence sequence = DOTween.Sequence();
+            sequence.AppendInterval(transitionDuration);
+            sequence.AppendCallback(() => { GameManager.Instance.InvokeEvent(EventId.CinematicFinished); });
+            sequence.AppendInterval(postTransitionDelay);
+            sequence.AppendCallback(() => { coc.customCameraController.SetOrbitTarget(bottleTransform, new Vector3(0, 5, -12)); });
         }
         
         private static void CustomActionFromGameToScore()
         {
-            // TODO(Lev): redo! this is only for testing purpose
-            // we might want to wait some time after firing CinematicFinished event before returning camera control to bottle
-            // so it won't be camera jumping to bottle hideout. Another way is to move this set to ResetPins
+            float transitionDuration = 1f;
             var coc = CinematicObjectsContainer.Instance;
-            coc.cameraAnimator.SetTrigger("ToScore");
-            coc.customCameraController.currentTarget = coc.cameraMenuTarget;
-            coc.customCameraController.secondaryTarget = coc.cameraMenuTarget;
-            coc.customCameraController.defaultOrbitTarget = coc.cameraMenuTarget;
-            coc.customCameraController.cameraOffset = Vector3.zero;// new Vector3(0, 5, -12);
-            coc.customCameraController.currentCameraMode = CustomCameraController.CameraMode.Fixed;
-            coc.customCameraController.futureCameraMode = CustomCameraController.CameraMode.Fixed;
-            coc.customCameraController.targetCamera.transform.position = coc.customCameraController.transform.position;
-            GameManager.Instance.InvokeEvent(EventId.CinematicFinished);
+
+            coc.cameraFollowTarget.position = coc.cameraGameplayPosition.position;
+            coc.cameraFollowTarget.rotation = coc.cameraGameplayPosition.rotation;
+            coc.customCameraController.SetFixedTarget(coc.cameraFollowTarget, Vector3.zero);
+            coc.cameraFollowTarget.DOMove(coc.cameraScorePosition.position, transitionDuration);
+            coc.cameraFollowTarget.DORotateQuaternion(coc.cameraScorePosition.rotation, transitionDuration);
+
+            DOVirtual.DelayedCall(transitionDuration, () => { GameManager.Instance.InvokeEvent(EventId.CinematicFinished); });
         }
-        
+
+        private static void CustomActionFromScoreToGame()
+        {
+            float transitionDuration = 1f;
+            float postTransitionDelay = 2f;
+            var coc = CinematicObjectsContainer.Instance;
+            var bottleTransform = GameObjectsContainer.Instance.mainPlayableBottle.transform;
+
+            coc.cameraFollowTarget.position = coc.cameraScorePosition.position;
+            coc.cameraFollowTarget.rotation = coc.cameraScorePosition.rotation;
+            coc.cameraFollowTarget.DOMove(coc.cameraGameplayPosition.position, transitionDuration);
+            coc.cameraFollowTarget.DORotateQuaternion(coc.cameraGameplayPosition.rotation, transitionDuration);
+
+            Sequence sequence = DOTween.Sequence();
+            sequence.AppendInterval(transitionDuration);
+            sequence.AppendCallback(() => { GameManager.Instance.InvokeEvent(EventId.CinematicFinished); });
+            sequence.AppendInterval(postTransitionDelay);
+            sequence.AppendCallback(() => { coc.customCameraController.SetOrbitTarget(bottleTransform, new Vector3(0, 5, -12)); });
+        }
+
         #endregion
     }
 

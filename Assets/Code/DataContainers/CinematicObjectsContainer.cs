@@ -25,12 +25,15 @@ namespace Code.DataContainers
         
         public CustomCameraController customCameraController;
         public Animator cameraAnimator;
-        public Transform cameraMenuTarget;
-        
+        public Transform cameraFollowTarget;
+        public Transform cameraMenuPosition;
+        public Transform cameraGameplayPosition;
+        public Transform cameraScorePosition;
+
         #endregion
 
         #region pourLiquid
-        
+
         public Animator pourLiquidAnimator;
         public Renderer jugWater;
         

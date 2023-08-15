@@ -62,6 +62,10 @@ namespace Code.DataContainers
 
         public GameObject tutorialPanel;
 
+        public GameObject pausePanel;
+
+        public bool ftuxCompleted = false;
+
         #endregion
     }
 }

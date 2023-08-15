@@ -47,8 +47,8 @@ namespace Code.Alex
         private void Update()
         {
             RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Input.GetKeyDown(KeyCode.Escape))
+            Ray ray = Camera.main.ScreenPointToRay(InputManager.Instance.cursorPosition);
+            if (InputManager.Instance.PauseInputActivated())
             {
                 if (inGameplay)
                 {
@@ -74,7 +74,7 @@ namespace Code.Alex
                         target.Toggle(true);
                         currentlySelected = target;
                     }
-                    if (Input.GetMouseButtonDown(0))
+                    if (InputManager.Instance.PrimaryActionActivated())
                     {
                         switch (target.optionType)
                         {

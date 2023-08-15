@@ -19,10 +19,20 @@ namespace Code.Menu
         }
         
         [SerializeField] private Camera mainCamera;
+
+        private bool allowGameplayActions = false;
+        public bool AllowGameplayActions => allowGameplayActions;
         
         private void Update()
         {
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            if (InputManager.Instance.PauseInputActivated())
+            {
+                if (allowGameplayActions)
+                {
+                    //TogglePause(!isPaused);
+                }
+            }
+            Ray ray = mainCamera.ScreenPointToRay(InputManager.Instance.cursorPosition);
             if (Block3dRaycast)
             {
                 return;
@@ -42,7 +52,7 @@ namespace Code.Menu
                         target.Toggle(true);
                         currentlySelected = target;
                     }
-                    if (Input.GetMouseButtonDown(0))
+                    if (InputManager.Instance.PrimaryActionActivated())
                     {
                         switch (target.optionType)
                         {
@@ -92,7 +102,7 @@ namespace Code.Menu
         Application.Quit();
 #endif
         }
-        
+
         public void ShowSettings()
         {
             // todo
@@ -117,15 +127,26 @@ namespace Code.Menu
 
         public void OpenTutorial()
         {
-            // TODO(Alex): fix
-            Time.timeScale = 0.0001f;
             UIContainer.Instance.tutorialPanel.SetActive(true);
         }
 
         public void CloseTutorial()
         {
-            Time.timeScale = 1;
             UIContainer.Instance.tutorialPanel.SetActive(false);
+            if ( !UIContainer.Instance.ftuxCompleted )
+            {
+                UIContainer.Instance.ftuxCompleted = true;
+            }
+        }
+
+        public void OpenPausePanel()
+        {
+            UIContainer.Instance.pausePanel.SetActive(true);
+        }
+
+        public void ClosePausePanel()
+        {
+            UIContainer.Instance.pausePanel.SetActive(false);
         }
     }
 }

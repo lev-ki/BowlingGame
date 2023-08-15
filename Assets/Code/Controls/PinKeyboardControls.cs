@@ -68,14 +68,14 @@ namespace Code.Controls
         void SetInputDirection()
         {
             inputDirection = Vector3.zero;
-            inputDirection += directionSource.right * Input.GetAxis("Horizontal");
-            inputDirection += Vector3.Cross(directionSource.right, Vector3.up) * Input.GetAxis("Vertical");
+            inputDirection += directionSource.right * InputManager.Instance.GetHorizontalAxis();
+            inputDirection += Vector3.Cross(directionSource.right, Vector3.up) * InputManager.Instance.GetVerticalAxis();
         }
 
         void Update()
         {
             SetInputDirection();
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (InputManager.Instance.SecondaryActionActivated())
             {
                 jumpNextFrame = jumpAllowanceTrigger.IsJumpAllowed;
             }
