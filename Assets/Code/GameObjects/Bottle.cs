@@ -72,6 +72,7 @@ namespace Code.GameObjects
             intactBottle.SetActive(false);
             GameManager.Instance.InvokeEvent(EventId.BottleBroken);
             IsBroken = true;
+            spillLiquid.LiquidLevel = 0;
         }
     }
 }

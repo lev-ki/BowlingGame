@@ -67,6 +67,9 @@ namespace Code.States
                 case EventId.BottleFell:
                     RefillBottle();
                     break;
+                case EventId.BottleBroken:
+                    RefillBottle();
+                    break;
             }
             base.InvokeEvent(eventId);
         }
