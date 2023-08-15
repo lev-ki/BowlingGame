@@ -51,7 +51,6 @@ namespace Code.States
                     if (ProgressionContainer.Instance.CurrentLevel.rounds.Count - 1 == ProgressionContainer.Instance.CurrentRoundIndex)
                     {
                         ProgressionContainer.Instance.currentScore = GameObjectsContainer.Instance.mainPlayableBottle.spillLiquid.LiquidLevel;
-                        // TODO(Alex): level increment in scoring
                         GameManager.Instance.InvokeEvent(EventId.AllRoundsFinished);
                         // return to prevent new round from starting
                         return;

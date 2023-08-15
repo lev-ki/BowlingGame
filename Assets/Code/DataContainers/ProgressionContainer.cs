@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Code.Progression;
 using UnityEngine;
 
 namespace Code.DataContainers
