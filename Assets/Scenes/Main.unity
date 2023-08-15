@@ -202,6 +202,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &273609668 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7119825021122855054, guid: edbe38d1a70c0a64e950caef066830d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 8487495270173346209}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d6281e5017f4d30a2538035f38f79ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &293552930
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,6 +589,7 @@ MonoBehaviour:
   pinsParent: {fileID: 220888923}
   sandboxPinsParent: {fileID: 759611064}
   ballLauncher: {fileID: 602237209}
+  pitFallDetector: {fileID: 273609668}
 --- !u!114 &1559728010
 MonoBehaviour:
   m_ObjectHideFlags: 0

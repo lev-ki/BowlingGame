@@ -45,7 +45,6 @@ public class AudioEmittingObject : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
         if (m_rigidbody.angularVelocity.magnitude > m_angularVelocityThreshold)
         {
             PlayCollision(m_rigidbody.angularVelocity.magnitude / m_magicNumber);

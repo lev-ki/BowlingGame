@@ -63,7 +63,7 @@ namespace Code.States.Cinematic
         private static void CustomActionFromMenuToGame()
         {
             float transitionDuration = 1f;
-            float postTransitionDelay = 2f;
+            float postTransitionDelay = 3f;
             var coc = CinematicObjectsContainer.Instance;
             var bottleTransform = GameObjectsContainer.Instance.mainPlayableBottle.transform;
 
@@ -96,7 +96,7 @@ namespace Code.States.Cinematic
         private static void CustomActionFromScoreToGame()
         {
             float transitionDuration = 1f;
-            float postTransitionDelay = 2f;
+            float postTransitionDelay = 3f;
             var coc = CinematicObjectsContainer.Instance;
             var bottleTransform = GameObjectsContainer.Instance.mainPlayableBottle.transform;
 

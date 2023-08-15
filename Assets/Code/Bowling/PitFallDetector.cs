@@ -11,16 +11,16 @@ namespace Code.Bowling
         
         private void OnTriggerEnter(Collider other)
         {
-            if (enabled && (1 << other.gameObject.layer & ballMask) != 0)
+            if ((1 << other.gameObject.layer & ballMask) != 0)
             {
                 GameManager.Instance.InvokeEvent(EventId.BallFell);
                 // ball despawn logic
             }
-            if (enabled && (1 << other.gameObject.layer & pinMask) != 0)
+            if ((1 << other.gameObject.layer & pinMask) != 0)
             {
                 // pin despawn logic
             }
-            if (enabled && (1 << other.gameObject.layer & bottleMask) != 0)
+            if ((1 << other.gameObject.layer & bottleMask) != 0)
             {
                 GameManager.Instance.InvokeEvent(EventId.BottleFell);
             }

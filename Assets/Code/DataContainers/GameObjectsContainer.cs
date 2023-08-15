@@ -31,5 +31,7 @@ namespace Code.DataContainers
         public Transform sandboxPinsParent;
         
         public BallLauncher ballLauncher;
+
+        public PitFallDetector pitFallDetector;
     }
 }

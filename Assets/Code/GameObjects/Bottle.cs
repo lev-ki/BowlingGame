@@ -6,6 +6,11 @@ namespace Code.GameObjects
 {
     public class Bottle : MonoBehaviour
     {
+        [SerializeField] private GameObject intactBottle;
+        [SerializeField] private GameObject brokenBottlePrefab;
+        [SerializeField] private float bottleBreakPiecesScatterForce = 5f;
+
+        private GameObject brokenBottleInstance;
         #region otherComponents
 
         public Rigidbody rb;
@@ -20,6 +25,8 @@ namespace Code.GameObjects
 
         [SerializeField] private PinKeyboardControls keyboardControls;
         [SerializeField] private PinDragMovementControl dragMovementControl;
+
+        public bool IsBroken { get; private set; }
         
         public void EnableControls()
         {
@@ -34,5 +41,37 @@ namespace Code.GameObjects
         }
         
         #endregion
+
+        public void ResetBottle()
+        {
+            rb.isKinematic = false;
+            Destroy(brokenBottleInstance);
+            intactBottle.SetActive(true);
+            IsBroken = false;
+        }
+
+        public void OnBreakBottle(Vector3 breakImpulse)
+        {
+            if (IsBroken)
+            {
+                return;
+            }
+            rb.isKinematic = true;
+            Destroy(brokenBottleInstance);
+            brokenBottleInstance = Instantiate(brokenBottlePrefab, transform.position, transform.rotation, transform.parent);
+            for (int i = 0; i < brokenBottleInstance.transform.childCount; i++)
+            {
+                Transform child = brokenBottleInstance.transform.GetChild(i);
+                Rigidbody childRB = child.GetComponent<Rigidbody>();
+                if (childRB)
+                {
+                    childRB.AddForce(Random.insideUnitSphere * bottleBreakPiecesScatterForce);
+                    childRB.AddForce(-breakImpulse * 0.1f, ForceMode.Impulse);
+                }
+            }
+            intactBottle.SetActive(false);
+            GameManager.Instance.InvokeEvent(EventId.BottleBroken);
+            IsBroken = true;
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Code.DataContainers;
+using Code.GameObjects;
 using UnityEngine;
 
 namespace Code.States
@@ -11,6 +12,13 @@ namespace Code.States
         private int ballsPresent;
         private bool allBallsThrown;
 
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            GameObjectsContainer.Instance.pitFallDetector.gameObject.SetActive(true);
+            //DestroyBalls(0);
+        }
+
         public override void OnExit()
         {
             base.OnExit();
@@ -18,10 +26,8 @@ namespace Code.States
             {
                 GameManager.Instance.StopCoroutine(ballsCoroutine);
             }
-            while (GameObjectsContainer.Instance.balls.Count > 0)
-            {
-                Destroy(GameObjectsContainer.Instance.balls[0].gameObject);
-            }
+            //DestroyBalls(2f); // 2 sec delay so that the ball doesn't disappear immediately after lose condition
+            GameObjectsContainer.Instance.pitFallDetector.gameObject.SetActive(false);
         }
 
         public override void InvokeEvent(EventId eventId)

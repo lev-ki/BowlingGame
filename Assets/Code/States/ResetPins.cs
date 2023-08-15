@@ -63,7 +63,8 @@ namespace Code.States
             var level = ProgressionContainer.Instance.CurrentLevel;
             var round = ProgressionContainer.Instance.CurrentRound;
             var goc = GameObjectsContainer.Instance;
-            var resetBottle = ProgressionContainer.Instance.runtimeBottleRoundStartOptions.resetBottle;
+            var resetBottle = ProgressionContainer.Instance.runtimeBottleRoundStartOptions.resetBottle || goc.mainPlayableBottle.IsBroken;
+            yield return new WaitForSeconds(1f);
             objectsTotal = round.resetPins ? level.pinPositions.Count : 1;
             objectsTotal -= resetBottle ? 0 : 1;
             foreach (int pinPosition in level.pinPositions)
@@ -77,6 +78,7 @@ namespace Code.States
                     {
                         continue;
                     }
+                    goc.mainPlayableBottle.ResetBottle();
                     Vector3 startPosition = goc.startingPinPositions[pinPosition].position + fallOffset;
                     goc.mainPlayableBottle.rb.velocity = Vector3.zero;
                     goc.mainPlayableBottle.rb.angularVelocity = Vector3.zero;
