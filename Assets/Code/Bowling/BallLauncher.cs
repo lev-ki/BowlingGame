@@ -26,6 +26,7 @@ namespace Code.Bowling
             force += Random.insideUnitSphere * maxRandomForce;
         
             ballRb.AddForce(force, ForceMode.Impulse);
+            GameObjectsContainer.Instance.spotlightFollow.AppendTarget(ballRb.transform);
         }
     }
 }

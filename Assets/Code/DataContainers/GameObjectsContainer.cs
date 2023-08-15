@@ -35,5 +35,7 @@ namespace Code.DataContainers
         public PitFallDetector pitFallDetector;
 
         public Cleaner cleaner;
+
+        public SpotlightFollow spotlightFollow;
     }
 }

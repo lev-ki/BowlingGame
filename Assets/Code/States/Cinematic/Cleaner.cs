@@ -16,6 +16,7 @@ namespace Code.States.Cinematic
 
         private void DestroyBalls(float delay)
         {
+            GameObjectsContainer.Instance.spotlightFollow.ClearTargets();
             for (int i = GameObjectsContainer.Instance.balls.Count - 1; i >= 0; i--)
             {
                 Destroy(GameObjectsContainer.Instance.balls[i].gameObject, delay);

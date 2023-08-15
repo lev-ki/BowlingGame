@@ -1557,7 +1557,7 @@ Transform:
   - {fileID: 5772111131285664972}
   - {fileID: 7323079791010029890}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &417021166793624554
 GameObject:
@@ -11912,6 +11912,7 @@ MonoBehaviour:
   quitPanel: {fileID: 6330651091549297296}
   credits: {fileID: 4185994018928630566}
   mainCamera: {fileID: 0}
+  blackFadeImage: {fileID: 2362053340185079305}
 --- !u!1 &5074734897304129214
 GameObject:
   m_ObjectHideFlags: 0
@@ -16336,7 +16337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

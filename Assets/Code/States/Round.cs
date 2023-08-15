@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Code.DataContainers;
 using Code.GameObjects;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Code.States
@@ -51,7 +52,7 @@ namespace Code.States
             if (allBallsThrown && ballsPresent == 0)
             {
                 ballsPresent = -1;
-                GameManager.Instance.InvokeEvent(EventId.AllBallsFell);
+                DOVirtual.DelayedCall( 3f, ()=> { GameManager.Instance.InvokeEvent(EventId.AllBallsFell); });
             }
         }
 
@@ -66,6 +67,7 @@ namespace Code.States
             ballsPresent = 0;
             var round = ProgressionContainer.Instance.CurrentRound;
             yield return new WaitForSeconds(round.ballLaunchDelay);
+            GameObjectsContainer.Instance.spotlightFollow.ClearTargets();
             for (int i = 0; i < round.ballsNumber; i++)
             {
                 LaunchBall();
