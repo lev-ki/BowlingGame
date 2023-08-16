@@ -8,5 +8,6 @@ namespace Code.GameObjects
     public class Pin : MonoBehaviour
     {
         public FallThenNotify fallThenNotify;
+        public PopIntoExistence popIntoExistence;
     }
 }

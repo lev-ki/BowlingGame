@@ -18,6 +18,7 @@ namespace Code.GameObjects
         public FallThenNotify fallThenNotify;
         public SpillLiquid spillLiquid;
         public BottleBreakController bottleBreakController;
+        public PopIntoExistence popIntoExistence;
 
         #endregion
 

@@ -8,7 +8,7 @@ namespace Code.States
     [CreateAssetMenu(fileName = "ResetPins", menuName = "SO/GameStates/ResetPins", order = 0)]
     public class ResetPins : BaseState
     {
-        [SerializeField] private GameObject pinPrefab;
+        [SerializeField] private Pin pinPrefab;
 
         private int objectsFallen;
         private int objectsTotal;
@@ -92,7 +92,7 @@ namespace Code.States
                     {
                         goc.mainPlayableBottle.spillLiquid.LiquidLevel = 1;
                     }
-                    pie = goc.mainPlayableBottle.GetComponent<PopIntoExistence>();
+                    pie = goc.mainPlayableBottle.popIntoExistence;
                     if (pie)
                     {
                         pie.ScalePopIntoExistence(0.2f);
@@ -102,8 +102,8 @@ namespace Code.States
                     continue;
                 }
 
-                GameObject go = Instantiate(pinPrefab, goc.startingPinPositions[pinPosition].position + fallOffset, Quaternion.identity, goc.pinsParent);
-                pie = go.GetComponent<PopIntoExistence>();
+                var pin = Instantiate(pinPrefab, goc.startingPinPositions[pinPosition].position + fallOffset, Quaternion.identity, goc.pinsParent);
+                pie = pin.popIntoExistence;
                 if (pie)
                 {
                     pie.ScalePopIntoExistence(0.2f);

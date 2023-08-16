@@ -15,5 +15,5 @@ MonoBehaviour:
   subState: {fileID: 0}
   defaultSubState: {fileID: 0}
   transitions: []
-  pinPrefab: {fileID: 2116348813306971324, guid: d88d8733ecc5ace45a11bc3bcfa0613b,
+  pinPrefab: {fileID: 9217970770191945807, guid: d88d8733ecc5ace45a11bc3bcfa0613b,
     type: 3}
