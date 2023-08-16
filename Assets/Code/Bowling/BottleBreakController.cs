@@ -24,6 +24,7 @@ namespace Code.Bowling
             }
         }
 
+        [ContextMenu("Reset Bottle")]
         public void ResetBottle()
         {
             GameObjectsContainer.Instance.mainPlayableBottle.rb.isKinematic = false;
@@ -41,7 +42,7 @@ namespace Code.Bowling
             GameObjectsContainer.Instance.mainPlayableBottle.rb.isKinematic = true;
             Destroy(brokenBottleInstance);
             var cachedTransform = transform;
-            GameObject brokenBottlePrefab = brokenBottlePrefabs[Random.Range(0, brokenBottlePrefabs.Count - 1)];
+            GameObject brokenBottlePrefab = brokenBottlePrefabs[Random.Range(0, brokenBottlePrefabs.Count)];
             brokenBottleInstance = Instantiate(brokenBottlePrefab, cachedTransform.position, cachedTransform.rotation, cachedTransform.parent);
             for (int i = 0; i < brokenBottleInstance.transform.childCount; i++)
             {
