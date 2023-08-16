@@ -29,7 +29,7 @@ namespace Code.States.Cinematic
             GameObjectsContainer.Instance.cleaner.StartCleaning();
             yield return new WaitForSeconds(2.5f);
             UIContainer.Instance.UIController.FadeToBlack(0.75f, true);
-            GameObjectsContainer.Instance.mainPlayableBottle.DestroyPieces(0.76f);
+            GameObjectsContainer.Instance.mainPlayableBottle.bottleBreakController.DestroyPieces(0.76f);
             yield return new WaitForSeconds(0.3f);
             DestroyBalls(0.2f);
             yield return new WaitForSeconds(0.2f);

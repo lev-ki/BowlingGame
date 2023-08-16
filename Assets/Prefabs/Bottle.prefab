@@ -117,7 +117,7 @@ Transform:
   - {fileID: 1917426512733662956}
   - {fileID: 36966074940599314}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2717846152639416602
 Rigidbody:
@@ -244,14 +244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803edec7ee9f407cac0b5bd119fda4a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intactBottle: {fileID: 4079328815785289370}
-  brokenBottlePrefab: {fileID: 3401581326178343378, guid: c0bb8550a9aa92049b4b7bfdbe1d593b,
-    type: 3}
-  bottleBreakPiecesScatterForce: 150
   rb: {fileID: 2717846152639416602}
   fallThenNotify: {fileID: 848067639363015397}
   spillLiquid: {fileID: 424133625107682893}
   bottleBreakController: {fileID: 7561576534942168134}
+  popIntoExistence: {fileID: 6093048208466060234}
   keyboardControls: {fileID: 7212659504626776013}
   dragMovementControl: {fileID: 497861017027207612}
 --- !u!114 &7561576534942168134
@@ -266,6 +263,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60ceabaff6b643708b42da0880b65a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  intactBottle: {fileID: 4079328815785289370}
+  bottleBreakPiecesScatterForce: 150
+  brokenBottlePrefabs:
+  - {fileID: 3401581326178343378, guid: c0bb8550a9aa92049b4b7bfdbe1d593b, type: 3}
+  - {fileID: 3933506812317533241, guid: e8fe8ee96032f7e46beb7201ca7ee245, type: 3}
+  - {fileID: 8163098196926449539, guid: 0d32a66ba37c5c449b8f8adca499c894, type: 3}
+  - {fileID: 8511103734751313906, guid: 4192fc975bdd2d14eb15f6f772b380ac, type: 3}
 --- !u!114 &424133625107682893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,8 +419,8 @@ MonoBehaviour:
   onThresholdPassedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5547868293451116744}
-        m_TargetAssemblyTypeName: Code.GameObjects.Bottle, Assembly-CSharp
+      - m_Target: {fileID: 7561576534942168134}
+        m_TargetAssemblyTypeName: Code.Bowling.BottleBreakController, Assembly-CSharp
         m_MethodName: OnBreakBottle
         m_Mode: 0
         m_Arguments:
