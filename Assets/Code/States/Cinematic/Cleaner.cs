@@ -26,6 +26,7 @@ namespace Code.States.Cinematic
 
         private IEnumerator CinematicCoroutine()
         {
+            yield return new WaitForSeconds(3f);
             GameObjectsContainer.Instance.cleaner.StartCleaning();
             yield return new WaitForSeconds(2.5f);
             UIContainer.Instance.UIController.FadeToBlack(0.75f, true);

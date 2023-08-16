@@ -154,6 +154,21 @@ namespace Code.States.Cinematic
 
     internal class GameLocation : Location
     {
+        private void DestroyBalls(float delay)
+        {
+            GameObjectsContainer.Instance.spotlightFollow.ClearTargets();
+            for (int i = GameObjectsContainer.Instance.balls.Count - 1; i >= 0; i--)
+            {
+                GameObject.Destroy(GameObjectsContainer.Instance.balls[i].gameObject, delay);
+                GameObjectsContainer.Instance.balls.RemoveAt(i);
+            }
+        }
+
+        public override void SrcBefore()
+        {
+            base.SrcBefore();
+            DestroyBalls(2f);
+        }
         public override void SrcAfter()
         {
             UIContainer.Instance.tutorialGeneral3d.SetActive(false);

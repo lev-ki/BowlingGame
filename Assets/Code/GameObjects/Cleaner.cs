@@ -31,19 +31,15 @@ namespace Code.GameObjects
 
         public void StartCleaning()
         {
-            Sequence sequence = DOTween.Sequence();
-
-            sequence.Append(transform.DOMove(extendedPosition.position, stepOneDuration).SetEase(stepOneCurve));
-            sequence.AppendInterval(pauseDuration);
-            sequence.Append(transform.DORotateQuaternion(extendedPosition.rotation, stepTwoDuration).SetEase(stepTwoCurve));
-            sequence.AppendInterval(pauseDuration);
-            sequence.Append(transform.DOMove(retractedPosition.position, stepThreeDuration).SetEase(stepThreeCurve));
-            sequence.AppendInterval(pauseDuration);
-            sequence.AppendCallback(() =>
-            {
-                transform.DOMove(initialPosition.position, stepFourDuration).SetEase(stepFourMoveCurve);
-                transform.DORotateQuaternion(initialPosition.rotation, stepFourDuration).SetEase(stepFourRotateCurve);
-            });
+            DOTween.Sequence()
+            .Append(transform.DOMove(extendedPosition.position, stepOneDuration).SetEase(stepOneCurve))
+            .AppendInterval(pauseDuration)
+            .Append(transform.DORotateQuaternion(extendedPosition.rotation, stepTwoDuration).SetEase(stepTwoCurve))
+            .AppendInterval(pauseDuration)
+            .Append(transform.DOMove(retractedPosition.position, stepThreeDuration).SetEase(stepThreeCurve))
+            .AppendInterval(pauseDuration)
+            .Append(transform.DOMove(initialPosition.position, stepFourDuration).SetEase(stepFourMoveCurve))
+                .Join(transform.DORotateQuaternion(initialPosition.rotation, stepFourDuration).SetEase(stepFourRotateCurve));
         }
     }
 }

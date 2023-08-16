@@ -52,7 +52,7 @@ namespace Code.States
             if (allBallsThrown && ballsPresent == 0)
             {
                 ballsPresent = -1;
-                DOVirtual.DelayedCall( 3f, ()=> { GameManager.Instance.InvokeEvent(EventId.AllBallsFell); });
+                GameManager.Instance.InvokeEvent(EventId.AllBallsFell);
             }
         }
 
