@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,12 +12,19 @@ namespace Code.GameObjects
         [SerializeField] private Transform transformToManipulate;
         [SerializeField] private Vector3 initialScale;
         [SerializeField] private Vector3 desiredScale;
+        
+        private Tween tween;
 
         public void ScalePopIntoExistence(float duration)
         {
             desiredScale = transformToManipulate.localScale;
             transformToManipulate.localScale = initialScale;
-            transformToManipulate.DOScale(desiredScale, duration).SetEase(scaleCurve);
+            tween = transformToManipulate.DOScale(desiredScale, duration).SetEase(scaleCurve);
+        }
+
+        private void OnDestroy()
+        {
+            tween?.Kill();
         }
     }
 }

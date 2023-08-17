@@ -12,7 +12,7 @@ namespace Code.States
             // this sets ui values in some images
             ProgressionContainer.Instance.CurrentLevelIndex = ProgressionContainer.Instance.CurrentLevelIndex;
             
-            UIContainer.Instance.UIController.AllowGameplayActions = true;
+            UIContainer.Instance.UIController.allowGameplayActions = true;
             if ( !UIContainer.Instance.ftuxCompleted )
             {
                 UIContainer.Instance.UIController.OpenTutorial();
@@ -26,7 +26,7 @@ namespace Code.States
         {
             base.OnExit();
             HideGameplayUI();
-            UIContainer.Instance.UIController.AllowGameplayActions = false;
+            UIContainer.Instance.UIController.allowGameplayActions = false;
         }
 
         private void ShowGameplayUI()

@@ -37,5 +37,7 @@ namespace Code.DataContainers
         public Cleaner cleaner;
 
         public SpotlightFollow spotlightFollow;
+        
+        public Vector3 bottleHideout;
     }
 }

@@ -38,7 +38,8 @@ namespace Code.States.Cinematic
         {
             Menu,
             Game,
-            Score
+            Score,
+            Any
         }
         
         private static Dictionary<CameraLocation, Location> _mapping = new ()
@@ -58,6 +59,7 @@ namespace Code.States.Cinematic
             {new(CameraLocation.Menu, CameraLocation.Game), CustomActionFromMenuToGame},
             {new(CameraLocation.Game, CameraLocation.Score), CustomActionFromGameToScore},
             {new(CameraLocation.Score, CameraLocation.Game), CustomActionFromScoreToGame},
+            {new(CameraLocation.Any, CameraLocation.Menu), CustomActionFromScoreToGame},
         };
         
         private static void CustomActionFromMenuToGame()
@@ -65,8 +67,7 @@ namespace Code.States.Cinematic
             float transitionDuration = 1f;
             float postTransitionDelay = 3f;
             var coc = CinematicObjectsContainer.Instance;
-            var bottleTransform = GameObjectsContainer.Instance.mainPlayableBottle.transform;
-
+            
             coc.cameraFollowTarget.position = coc.cameraMenuPosition.position;
             coc.cameraFollowTarget.rotation = coc.cameraMenuPosition.rotation;
             coc.cameraFollowTarget.DOMove(coc.cameraGameplayPosition.position, transitionDuration);
@@ -76,7 +77,6 @@ namespace Code.States.Cinematic
             sequence.AppendInterval(transitionDuration);
             sequence.AppendCallback(() => { GameManager.Instance.InvokeEvent(EventId.CinematicFinished); });
             sequence.AppendInterval(postTransitionDelay);
-            sequence.AppendCallback(() => { coc.customCameraController.SetOrbitTarget(bottleTransform, new Vector3(0, 5, -12)); });
         }
         
         private static void CustomActionFromGameToScore()
@@ -112,6 +112,19 @@ namespace Code.States.Cinematic
             sequence.AppendCallback(() => { GameManager.Instance.InvokeEvent(EventId.CinematicFinished); });
             sequence.AppendInterval(postTransitionDelay);
             sequence.AppendCallback(() => { coc.customCameraController.SetOrbitTarget(bottleTransform, new Vector3(0, 5, -12)); });
+        }
+        
+        public static void CustomActionToMenu()
+        {
+            float transitionDuration = 1f;
+            var coc = CinematicObjectsContainer.Instance;
+            coc.cameraFollowTarget.position = coc.customCameraController.cameraParent.position;
+            coc.cameraFollowTarget.rotation = coc.customCameraController.cameraParent.rotation;
+            coc.customCameraController.SetFixedTarget(coc.cameraFollowTarget, Vector3.zero);
+            coc.cameraFollowTarget.DOMove(coc.cameraMenuPosition.position, transitionDuration);
+            coc.cameraFollowTarget.DORotateQuaternion(coc.cameraMenuPosition.rotation, transitionDuration);
+
+            DOVirtual.DelayedCall(transitionDuration, () => { GameManager.Instance.InvokeEvent(EventId.CinematicFinished); });
         }
 
         #endregion

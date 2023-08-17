@@ -7,11 +7,19 @@ namespace Code.States.Cinematic
     [CreateAssetMenu(fileName = "CleanerCinematic", menuName = "SO/GameStates/Cinematic/Cleaner", order = 0)]
     public class Cleaner : BaseState
     {
+        private Coroutine cinematicCoroutine;
+        
         public override void OnEnter()
         {
             // TODO (Lev)
-            GameManager.Instance.StartCoroutine(CinematicCoroutine());
+            cinematicCoroutine = GameManager.Instance.StartCoroutine(CinematicCoroutine());
             base.OnEnter();
+        }
+
+        public override void OnExit()
+        {
+            base.OnExit();
+            GameManager.Instance.StopCoroutine(cinematicCoroutine);
         }
 
         private void DestroyBalls(float delay)

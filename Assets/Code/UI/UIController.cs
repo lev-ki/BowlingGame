@@ -1,4 +1,6 @@
 ﻿using Code.DataContainers;
+using Code.GameObjects;
+using Code.States.Cinematic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
@@ -17,21 +19,17 @@ namespace Code.Menu
 
         [SerializeField] private Image blackFadeImage;
 
-        private bool allowGameplayActions = false;
-        public bool AllowGameplayActions
-        {
-            get => allowGameplayActions;
-            set
-            {
-                allowGameplayActions = value;
-            }
-        }
+        public bool allowGameplayActions;
 
         private void Update()
         {
             if (InputManager.Instance.PauseInputActivated())
             {
-                if (allowGameplayActions)
+                if (IsPausePanelOpened())
+                {
+                    ClosePausePanel();
+                }
+                else if (allowGameplayActions)
                 {
                     OpenPausePanel();
                 }
@@ -143,6 +141,11 @@ namespace Code.Menu
             GameManager.Instance.SetPause(false, "tutorial");
             InputManager.Instance.block3DRaycast = false;
         }
+        
+        public bool IsPausePanelOpened()
+        {
+            return UIContainer.Instance.pausePanel.activeSelf;
+        }
 
         public void OpenPausePanel()
         {
@@ -160,8 +163,22 @@ namespace Code.Menu
 
         public void ToMainMenu()
         {
-            // TODO(anyone): make this work
-            //GameManager.Instance.InvokeEvent(EventId.PauseMenuSelected);
+            CameraTransition.CustomActionToMenu();
+            var goc = GameObjectsContainer.Instance;
+            goc.mainPlayableBottle.transform.position = goc.bottleHideout;
+            goc.mainPlayableBottle.fallThenNotify.enabled = false;
+            foreach (Transform pin in goc.pinsParent)
+            {
+                Destroy(pin.gameObject);
+            }
+
+            for (var i = goc.balls.Count - 1; i >= 0; i--)
+            {
+                var ball = goc.balls[i];
+                Destroy(ball.gameObject);
+            }
+
+            GameManager.Instance.InvokeEvent(EventId.PauseMenuSelected);
         }
 
         public void FadeToBlack(float duration, bool fadeOutAfter = true)

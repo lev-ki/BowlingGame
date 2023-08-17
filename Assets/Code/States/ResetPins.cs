@@ -9,6 +9,8 @@ namespace Code.States
     public class ResetPins : BaseState
     {
         [SerializeField] private Pin pinPrefab;
+        
+        private Coroutine placePinsCoroutine;
 
         private int objectsFallen;
         private int objectsTotal;
@@ -32,7 +34,7 @@ namespace Code.States
                 GameObjectsContainer.Instance.mainPlayableBottle.gameObject.SetActive(false);
             }
             objectsFallen = 0;
-            GameManager.Instance.StartCoroutine(PlacePinsCoroutine());
+            placePinsCoroutine = GameManager.Instance.StartCoroutine(PlacePinsCoroutine());
             base.OnEnter();
         }
 
@@ -41,6 +43,7 @@ namespace Code.States
             base.OnExit();
             ProgressionContainer.Instance.runtimeBottleRoundStartOptions.resetBottle = false;
             ProgressionContainer.Instance.runtimeBottleRoundStartOptions.refillBottle = false;
+            GameManager.Instance.StopCoroutine(placePinsCoroutine);
         }
 
         public override void InvokeEvent(EventId eventId)
@@ -99,6 +102,7 @@ namespace Code.States
                         CinematicObjectsContainer.Instance.poppingSoundSource.pitch = Random.Range(0.5f, 1.5f);
                         CinematicObjectsContainer.Instance.poppingSoundSource.Play();
                     }
+                    CinematicObjectsContainer.Instance.customCameraController.SetOrbitTarget(bottleTransform, new Vector3(0, 5, -12));
                     continue;
                 }
 
