@@ -83,14 +83,16 @@ namespace Code.States.Cinematic
         {
             float transitionDuration = 1f;
             var coc = CinematicObjectsContainer.Instance;
+            DOVirtual.DelayedCall(3f, () =>
+            {
+                coc.cameraFollowTarget.position = coc.cameraGameplayPosition.position;
+                coc.cameraFollowTarget.rotation = coc.cameraGameplayPosition.rotation;
+                coc.customCameraController.SetFixedTarget(coc.cameraFollowTarget, Vector3.zero);
+                coc.cameraFollowTarget.DOMove(coc.cameraScorePosition.position, transitionDuration);
+                coc.cameraFollowTarget.DORotateQuaternion(coc.cameraScorePosition.rotation, transitionDuration);
 
-            coc.cameraFollowTarget.position = coc.cameraGameplayPosition.position;
-            coc.cameraFollowTarget.rotation = coc.cameraGameplayPosition.rotation;
-            coc.customCameraController.SetFixedTarget(coc.cameraFollowTarget, Vector3.zero);
-            coc.cameraFollowTarget.DOMove(coc.cameraScorePosition.position, transitionDuration);
-            coc.cameraFollowTarget.DORotateQuaternion(coc.cameraScorePosition.rotation, transitionDuration);
-
-            DOVirtual.DelayedCall(transitionDuration, () => { GameManager.Instance.InvokeEvent(EventId.CinematicFinished); });
+                DOVirtual.DelayedCall(transitionDuration, () => { GameManager.Instance.InvokeEvent(EventId.CinematicFinished); });
+            });
         }
 
         private static void CustomActionFromScoreToGame()
