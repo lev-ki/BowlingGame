@@ -8,6 +8,10 @@ namespace Code.States
     {
         public override void OnEnter()
         {
+            // here might go some save/load logic
+            // this sets ui values in some images
+            ProgressionContainer.Instance.CurrentLevelIndex = ProgressionContainer.Instance.CurrentLevelIndex;
+            
             UIContainer.Instance.UIController.AllowGameplayActions = true;
             if ( !UIContainer.Instance.ftuxCompleted )
             {
