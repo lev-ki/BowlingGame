@@ -734,7 +734,7 @@ GameObject:
   - component: {fileID: 1175569558931495769}
   - component: {fileID: 3580090610585083176}
   - component: {fileID: 2329283685758031211}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -916,6 +916,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pin
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c8b5318fb018c354ca2bca091b19610a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
