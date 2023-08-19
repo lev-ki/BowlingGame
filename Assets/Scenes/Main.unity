@@ -656,6 +656,7 @@ MonoBehaviour:
   pourLiquidAnimator: {fileID: 0}
   jugWater: {fileID: 0}
   poppingSoundSource: {fileID: 1334743140}
+  pinPositionsHighlight: {fileID: 1995790668}
 --- !u!4 &1559728011
 Transform:
   m_ObjectHideFlags: 0
@@ -800,6 +801,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6650421202381356013, guid: dc69f84e06172c24baa33a9483ae0fc6,
     type: 3}
   m_PrefabInstance: {fileID: 529826994566349718}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &1995790668 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 1956022053717031418, guid: a4095410c6e4ae04c9514cdb8ea413ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 6479418553384402727}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2002644690 stripped
 Transform:
@@ -983,11 +990,6 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 127561635}
-    - target: {fileID: 6683510117027455320, guid: dc69f84e06172c24baa33a9483ae0fc6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1281,11 +1283,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gameplay
-      objectReference: {fileID: 0}
-    - target: {fileID: 7363883222417140897, guid: edbe38d1a70c0a64e950caef066830d3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

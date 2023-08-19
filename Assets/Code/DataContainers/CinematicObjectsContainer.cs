@@ -41,5 +41,10 @@ namespace Code.DataContainers
         
         #endregion
 
+        #region light
+        
+        public Light pinPositionsHighlight;
+        
+        #endregion
     }
 }

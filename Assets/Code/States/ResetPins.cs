@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Code.DataContainers;
 using Code.GameObjects;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Code.States
@@ -33,6 +34,9 @@ namespace Code.States
             {
                 GameObjectsContainer.Instance.mainPlayableBottle.gameObject.SetActive(false);
             }
+            
+            CinematicObjectsContainer.Instance.pinPositionsHighlight.intensity = 1;
+            
             objectsFallen = 0;
             placePinsCoroutine = GameManager.Instance.StartCoroutine(PlacePinsCoroutine());
             base.OnEnter();
@@ -44,6 +48,10 @@ namespace Code.States
             ProgressionContainer.Instance.runtimeBottleRoundStartOptions.resetBottle = false;
             ProgressionContainer.Instance.runtimeBottleRoundStartOptions.refillBottle = false;
             GameManager.Instance.StopCoroutine(placePinsCoroutine);
+            DOTween.To(
+                () => CinematicObjectsContainer.Instance.pinPositionsHighlight.intensity,
+                (value) => CinematicObjectsContainer.Instance.pinPositionsHighlight.intensity = value,
+                    0, 3);
         }
 
         public override void InvokeEvent(EventId eventId)
