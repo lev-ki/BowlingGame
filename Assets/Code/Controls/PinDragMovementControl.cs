@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Code.Controls
@@ -34,6 +35,12 @@ namespace Code.Controls
         }
         
         public float maxForce;
+
+        private void OnDisable()
+        {
+            isDragging = false;
+            dragLine.positionCount = 0;
+        }
 
         private void Start()
         {
