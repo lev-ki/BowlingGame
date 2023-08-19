@@ -312,6 +312,7 @@ MonoBehaviour:
   bottleLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  timeTillLose: 10
 --- !u!1 &1203083278180559476
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,6 +589,7 @@ MonoBehaviour:
   bottleLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  timeTillLose: 10
 --- !u!1 &2555347059667059637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,6 +1759,7 @@ MonoBehaviour:
   bottleLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  timeTillLose: 10
 --- !u!1 &8020118288394368248
 GameObject:
   m_ObjectHideFlags: 0

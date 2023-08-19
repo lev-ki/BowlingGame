@@ -59,12 +59,20 @@ namespace Code.DataContainers
         public TextMeshProUGUI currentLevelText;
         public TextMeshProUGUI currentRoundText;
         public TextMeshProUGUI maxRoundText;
+        public TextMeshProUGUI maxLevelText;
 
         public GameObject tutorialPanel;
 
         public GameObject pausePanel;
 
         public bool ftuxCompleted = false;
+
+        #endregion
+
+        #region returnToLane
+
+        public TextMeshProUGUI returnTime;
+        public GameObject returnToLane;
 
         #endregion
     }

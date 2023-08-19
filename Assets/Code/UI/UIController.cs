@@ -1,4 +1,5 @@
-﻿using Code.DataContainers;
+﻿using System;
+using Code.DataContainers;
 using Code.GameObjects;
 using Code.States.Cinematic;
 using UnityEngine;
@@ -20,6 +21,11 @@ namespace Code.Menu
         [SerializeField] private Image blackFadeImage;
 
         public bool allowGameplayActions;
+
+        private void Start()
+        {
+            UIContainer.Instance.maxLevelText.text = ProgressionContainer.Instance.levels.Count.ToString();
+        }
 
         private void Update()
         {

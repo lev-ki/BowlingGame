@@ -17,6 +17,7 @@ namespace Code.States
         {
             base.OnEnter();
             GameObjectsContainer.Instance.pitFallDetector.gameObject.SetActive(true);
+            GameObjectsContainer.Instance.invisibleWalls.SetActive(true);
             //DestroyBalls(0);
         }
 
@@ -29,6 +30,7 @@ namespace Code.States
             }
             //DestroyBalls(2f); // 2 sec delay so that the ball doesn't disappear immediately after lose condition
             GameObjectsContainer.Instance.pitFallDetector.gameObject.SetActive(false);
+            GameObjectsContainer.Instance.invisibleWalls.SetActive(false);
         }
 
         public override void InvokeEvent(EventId eventId)

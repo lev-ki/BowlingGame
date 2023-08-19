@@ -39,5 +39,7 @@ namespace Code.DataContainers
         public SpotlightFollow spotlightFollow;
         
         public Vector3 bottleHideout;
+        
+        public GameObject invisibleWalls;
     }
 }

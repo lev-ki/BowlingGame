@@ -180,6 +180,18 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 8487495270173346209}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &187933567 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7205067664911134990, guid: dc69f84e06172c24baa33a9483ae0fc6,
+    type: 3}
+  m_PrefabInstance: {fileID: 529826994566349718}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &220888923 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1213499387366075783, guid: edbe38d1a70c0a64e950caef066830d3,
@@ -379,6 +391,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &564521365 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7470342241419497679, guid: dc69f84e06172c24baa33a9483ae0fc6,
+    type: 3}
+  m_PrefabInstance: {fileID: 529826994566349718}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &594029129
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,6 +494,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11570888b32c4594987f3d52da3a7947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1254377867 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7363883222417140897, guid: edbe38d1a70c0a64e950caef066830d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 8487495270173346209}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &1334743140 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 2584973573376241524, guid: edbe38d1a70c0a64e950caef066830d3,
@@ -538,9 +568,12 @@ MonoBehaviour:
   currentLevelText: {fileID: 1019957268718054969}
   currentRoundText: {fileID: 3604569589442064321}
   maxRoundText: {fileID: 6973652182879513279}
+  maxLevelText: {fileID: 564521365}
   tutorialPanel: {fileID: 1940412925}
   pausePanel: {fileID: 297909040}
   ftuxCompleted: 0
+  returnTime: {fileID: 187933567}
+  returnToLane: {fileID: 1883319967}
 --- !u!114 &1559728008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,6 +634,7 @@ MonoBehaviour:
   cleaner: {fileID: 2007113607}
   spotlightFollow: {fileID: 1680968160}
   bottleHideout: {x: 0, y: 0, z: 0}
+  invisibleWalls: {fileID: 1254377867}
 --- !u!114 &1559728010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,6 +783,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1883319967 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6683510117027455320, guid: dc69f84e06172c24baa33a9483ae0fc6,
+    type: 3}
+  m_PrefabInstance: {fileID: 529826994566349718}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1940412925 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4983137075405322768, guid: dc69f84e06172c24baa33a9483ae0fc6,
@@ -822,11 +862,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 364717025006855909, guid: dc69f84e06172c24baa33a9483ae0fc6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 438883775891350137, guid: dc69f84e06172c24baa33a9483ae0fc6,
         type: 3}
@@ -948,6 +983,11 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 127561635}
+    - target: {fileID: 6683510117027455320, guid: dc69f84e06172c24baa33a9483ae0fc6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1241,6 +1281,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gameplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363883222417140897, guid: edbe38d1a70c0a64e950caef066830d3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
