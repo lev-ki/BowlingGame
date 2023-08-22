@@ -51,7 +51,7 @@ namespace Code.States
             DOTween.To(
                 () => CinematicObjectsContainer.Instance.pinPositionsHighlight.intensity,
                 (value) => CinematicObjectsContainer.Instance.pinPositionsHighlight.intensity = value,
-                    0, 3);
+                    0, 0.3f);
         }
 
         public override void InvokeEvent(EventId eventId)
