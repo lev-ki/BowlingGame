@@ -107,7 +107,7 @@ namespace Code.States
                     if (pie)
                     {
                         pie.ScalePopIntoExistence(0.2f);
-                        CinematicObjectsContainer.Instance.poppingSoundSource.pitch = Random.Range(0.5f, 1.5f);
+                        CinematicObjectsContainer.Instance.poppingSoundSource.pitch = Random.Range(0.25f, 1f);
                         CinematicObjectsContainer.Instance.poppingSoundSource.Play();
                     }
                     CinematicObjectsContainer.Instance.customCameraController.SetOrbitTarget(bottleTransform, new Vector3(0, 5, -12));
@@ -120,7 +120,7 @@ namespace Code.States
                 {
                     pie.ScalePopIntoExistence(0.2f);
                     CinematicObjectsContainer.Instance.poppingSoundSource.Play();
-                    CinematicObjectsContainer.Instance.poppingSoundSource.pitch = Random.Range(0.5f, 1.5f);
+                    CinematicObjectsContainer.Instance.poppingSoundSource.pitch = Random.Range(0.25f, 1f);
                 }
             }
         }

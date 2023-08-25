@@ -9,6 +9,7 @@ namespace Code.Bowling
         [SerializeField] private GameObject intactBottle;
         [SerializeField] private float bottleBreakPiecesScatterForce = 5f;
         [SerializeField] private List<GameObject> brokenBottlePrefabs;
+        [SerializeField] private AudioSource bottleBreakSound;
 
         private GameObject brokenBottleInstance;
 
@@ -39,6 +40,7 @@ namespace Code.Bowling
             {
                 return;
             }
+            bottleBreakSound.Play();
             GameObjectsContainer.Instance.mainPlayableBottle.rb.isKinematic = true;
             Destroy(brokenBottleInstance);
             var cachedTransform = transform;
