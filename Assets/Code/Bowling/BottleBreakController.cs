@@ -58,7 +58,7 @@ namespace Code.Bowling
             }
             intactBottle.SetActive(false);
             IsBroken = true;
-            GameObjectsContainer.Instance.mainPlayableBottle.spillLiquid.LiquidLevel = 0;
+            GameObjectsContainer.Instance.mainPlayableBottle.spillLiquid.BreakBottle();
             GameManager.Instance.InvokeEvent(EventId.BottleBroken);
         }
     }

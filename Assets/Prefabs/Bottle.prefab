@@ -117,6 +117,8 @@ Transform:
   - {fileID: 640540848314453346}
   - {fileID: 1917426512733662956}
   - {fileID: 36966074940599314}
+  - {fileID: 6200426362496107144}
+  - {fileID: 5441998328427089784}
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -285,6 +287,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterRenderer: {fileID: 4389937846300594744}
+  liquidLevelToSpillAngle:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.6
+      inSlope: -0.13531806
+      outSlope: -0.13531806
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.10919805
+    - serializedVersion: 3
+      time: 0.5111754
+      value: 0.4409346
+      inSlope: -0.20487326
+      outSlope: -0.20487326
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.110854365
+    - serializedVersion: 3
+      time: 0.8720622
+      value: 0.32838783
+      inSlope: -0.8709151
+      outSlope: -0.8709151
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.3713962
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -4.7153416
+      outSlope: -4.7153416
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.115883045
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  liquidDiffToParticleNumber:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 200
+      outSlope: 200
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 200
+      inSlope: 200
+      outSlope: 200
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  liquidParticleSystem: {fileID: 2392259786390152631}
+  breakBottleParticleSystem: {fileID: 1511695911495758619}
 --- !u!114 &848067639363015397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1269,3 +1339,173 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &5108582262997898332
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5723013339645416978}
+    m_Modifications:
+    - target: {fileID: 963920016543275812, guid: 4be6adae4a96b634993f6a11378661f0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 963920016543275812, guid: 4be6adae4a96b634993f6a11378661f0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 963920016543275812, guid: 4be6adae4a96b634993f6a11378661f0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 963920016543275812, guid: 4be6adae4a96b634993f6a11378661f0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 963920016543275812, guid: 4be6adae4a96b634993f6a11378661f0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071069
+      objectReference: {fileID: 0}
+    - target: {fileID: 963920016543275812, guid: 4be6adae4a96b634993f6a11378661f0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 963920016543275812, guid: 4be6adae4a96b634993f6a11378661f0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 963920016543275812, guid: 4be6adae4a96b634993f6a11378661f0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 963920016543275812, guid: 4be6adae4a96b634993f6a11378661f0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 963920016543275812, guid: 4be6adae4a96b634993f6a11378661f0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 963920016543275812, guid: 4be6adae4a96b634993f6a11378661f0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6397583688497111599, guid: 4be6adae4a96b634993f6a11378661f0,
+        type: 3}
+      propertyPath: m_Name
+      value: BottleBreakSplash
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4be6adae4a96b634993f6a11378661f0, type: 3}
+--- !u!198 &1511695911495758619 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5917672651585005383, guid: 4be6adae4a96b634993f6a11378661f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 5108582262997898332}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5441998328427089784 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 963920016543275812, guid: 4be6adae4a96b634993f6a11378661f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 5108582262997898332}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5578216889084146370
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5723013339645416978}
+    m_Modifications:
+    - target: {fileID: 1974151516763566154, guid: 7d126a09139b09f4db646260266239cf,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974151516763566154, guid: 7d126a09139b09f4db646260266239cf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974151516763566154, guid: 7d126a09139b09f4db646260266239cf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.589
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974151516763566154, guid: 7d126a09139b09f4db646260266239cf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974151516763566154, guid: 7d126a09139b09f4db646260266239cf,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071069
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974151516763566154, guid: 7d126a09139b09f4db646260266239cf,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974151516763566154, guid: 7d126a09139b09f4db646260266239cf,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974151516763566154, guid: 7d126a09139b09f4db646260266239cf,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974151516763566154, guid: 7d126a09139b09f4db646260266239cf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974151516763566154, guid: 7d126a09139b09f4db646260266239cf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974151516763566154, guid: 7d126a09139b09f4db646260266239cf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603639391758666333, guid: 7d126a09139b09f4db646260266239cf,
+        type: 3}
+      propertyPath: m_Name
+      value: SplashParticleSystem
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d126a09139b09f4db646260266239cf, type: 3}
+--- !u!198 &2392259786390152631 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7807778498831800181, guid: 7d126a09139b09f4db646260266239cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 5578216889084146370}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6200426362496107144 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1974151516763566154, guid: 7d126a09139b09f4db646260266239cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 5578216889084146370}
+  m_PrefabAsset: {fileID: 0}

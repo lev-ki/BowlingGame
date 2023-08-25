@@ -10,10 +10,11 @@ namespace Code.Bowling
         [SerializeField] private AnimationCurve liquidLevelToSpillAngle;
         [SerializeField] private AnimationCurve liquidDiffToParticleNumber;
         [SerializeField] private ParticleSystem liquidParticleSystem;
-        
+        [SerializeField] private ParticleSystem breakBottleParticleSystem;
+
         private float spillAngle;
         private int emitOverTime;
-
+        private bool bottleBroken = false;
 
         private float liquidLevel;
         public float LiquidLevel
@@ -25,12 +26,26 @@ namespace Code.Bowling
                 waterRenderer.material.SetFloat(FillShaderPropertyID, liquidLevel);
                 if (value < liquidLevel)
                 {
-                    liquidParticleSystem.Emit(Mathf.CeilToInt(liquidDiffToParticleNumber.Evaluate(liquidLevel - value)));
+                    if(bottleBroken)
+                    {
+                        breakBottleParticleSystem.Emit(Mathf.CeilToInt(liquidDiffToParticleNumber.Evaluate(liquidLevel - value)));
+                        bottleBroken = false;
+                    }
+                    else
+                    {
+                        liquidParticleSystem.Emit(Mathf.CeilToInt(liquidDiffToParticleNumber.Evaluate(liquidLevel - value)));
+                    }
                 }
                 liquidLevel = value;
             }
         }
         private static readonly int FillShaderPropertyID = Shader.PropertyToID("_Fill");
+
+        public void BreakBottle()
+        {
+            bottleBroken = true;
+            LiquidLevel = 0;
+        }
 
         private void FixedUpdate()
         {

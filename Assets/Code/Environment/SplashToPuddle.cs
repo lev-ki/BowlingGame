@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SplashToPuddle : MonoBehaviour
 {
-    public ParticleSystem splashParticleSystem; // Ссылка на Particle System для брызг
-    public ParticleSystem puddleParticleSystem; // Ссылка на Particle System для лужи
+    public ParticleSystem splashParticleSystem;
+    public ParticleSystem bottleBreakParticleSystem;
+    public ParticleSystem puddleParticleSystem;
 
-    private ParticleSystem currentPuddle; // Ссылка на текущий активный эффект лужи
+    private ParticleSystem currentPuddle;
 
     public List<ParticleCollisionEvent> collisionEvents;
     public Vector3 spawnOffset;
@@ -18,16 +19,13 @@ public class SplashToPuddle : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        // Проверяем, столкнулись ли с партиклом брызг
-        if (other == splashParticleSystem.gameObject)
+        if (other == splashParticleSystem.gameObject || other == bottleBreakParticleSystem.gameObject )
         {
-            splashParticleSystem.GetCollisionEvents(gameObject, collisionEvents);
+            bool isBottleBreak = other == bottleBreakParticleSystem.gameObject;
+            (isBottleBreak? bottleBreakParticleSystem : splashParticleSystem).GetCollisionEvents(gameObject, collisionEvents);
 
             foreach (var e in collisionEvents)
             {
-
-
-                // Создаем эффект лужи на позиции столкновения
                 currentPuddle = Instantiate(puddleParticleSystem, e.intersection + spawnOffset, Quaternion.identity);
                 currentPuddle.Play();
 
