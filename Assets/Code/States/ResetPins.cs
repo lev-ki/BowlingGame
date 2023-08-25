@@ -101,6 +101,7 @@ namespace Code.States
                     goc.mainPlayableBottle.fallThenNotify.enabled = true;
                     if (ProgressionContainer.Instance.runtimeBottleRoundStartOptions.refillBottle)
                     {
+                        UIContainer.Instance.liquidLevelImage.RotateBottleIndicator(0);
                         goc.mainPlayableBottle.spillLiquid.LiquidLevel = 1;
                     }
                     pie = goc.mainPlayableBottle.popIntoExistence;

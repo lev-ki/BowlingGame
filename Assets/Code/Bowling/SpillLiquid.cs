@@ -7,7 +7,14 @@ namespace Code.Bowling
     public class SpillLiquid : MonoBehaviour
     {
         public Renderer waterRenderer;
+        [SerializeField] private AnimationCurve liquidLevelToSpillAngle;
+        [SerializeField] private AnimationCurve liquidDiffToParticleNumber;
+        [SerializeField] private ParticleSystem liquidParticleSystem;
         
+        private float spillAngle;
+        private int emitOverTime;
+
+
         private float liquidLevel;
         public float LiquidLevel
         {
@@ -16,6 +23,10 @@ namespace Code.Bowling
             {
                 UIContainer.Instance.liquidLevelImage.SetLevel(value);
                 waterRenderer.material.SetFloat(FillShaderPropertyID, liquidLevel);
+                if (value < liquidLevel)
+                {
+                    liquidParticleSystem.Emit(Mathf.CeilToInt(liquidDiffToParticleNumber.Evaluate(liquidLevel - value)));
+                }
                 liquidLevel = value;
             }
         }
@@ -24,6 +35,7 @@ namespace Code.Bowling
         private void FixedUpdate()
         {
             float angle = Vector3.Angle(transform.up, Vector3.up);
+            UIContainer.Instance.liquidLevelImage.RotateBottleIndicator(angle);
             if (angle < ProgressionContainer.Instance.CurrentRound.spillThreshold)
             {
                 return;
@@ -31,16 +43,20 @@ namespace Code.Bowling
 
             if (LiquidLevel > 0)
             {
-                // 89 instead of 90 to eliminate edge case when cos gives negative number so liquid level will rise
-                float diffToEdge = angle > 89 ? -1 : Mathf.Cos(Mathf.Deg2Rad * angle) - LiquidLevel;
-                if (diffToEdge < 0)
+                spillAngle = liquidLevelToSpillAngle.Evaluate(LiquidLevel) * 180;
+                if (angle > spillAngle)
                 {
-                    float spill = Time.fixedDeltaTime * ProgressionContainer.Instance.CurrentRound.spillSpeed * diffToEdge;
-                    LiquidLevel += spill;
-                    if (LiquidLevel < 0)
+                    // 89 instead of 90 to eliminate edge case when cos gives negative number so liquid level will rise
+                    float diffToEdge = angle > 89 ? -1 : Mathf.Cos(Mathf.Deg2Rad * angle) - LiquidLevel;
+                    if (diffToEdge < 0)
                     {
-                        LiquidLevel = 0;
-                        GameManager.Instance.InvokeEvent(EventId.BottleDrained);
+                        float spill = Time.fixedDeltaTime * ProgressionContainer.Instance.CurrentRound.spillSpeed * diffToEdge;
+                        LiquidLevel += spill;
+                        if (LiquidLevel < 0)
+                        {
+                            LiquidLevel = 0;
+                            GameManager.Instance.InvokeEvent(EventId.BottleDrained);
+                        }
                     }
                 }
             }

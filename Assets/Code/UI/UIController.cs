@@ -13,12 +13,14 @@ namespace Code.Menu
         public enum OptionType { Play, Sandbox, Settings, Credits, Quit, };
         private RaycastTarget currentlySelected;
 
+        [SerializeField] private Canvas canvas;
         [SerializeField] private GameObject quitPanel;
         [SerializeField] private GameObject credits;
 
         [SerializeField] private Camera mainCamera;
 
         [SerializeField] private Image blackFadeImage;
+        [SerializeField] private RectTransform chargeIndicator;
 
         public bool allowGameplayActions;
 
@@ -40,6 +42,16 @@ namespace Code.Menu
                     OpenPausePanel();
                 }
             }
+
+            Vector2 movePos;
+
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                canvas.transform as RectTransform,
+                InputManager.Instance.cursorPosition, canvas.worldCamera,
+                out movePos);
+
+            chargeIndicator.position = canvas.transform.TransformPoint(movePos);
+
             Ray ray = mainCamera.ScreenPointToRay(InputManager.Instance.cursorPosition);
 
             if (!InputManager.Instance.block3DRaycast && Physics.Raycast(ray, out var hit, 100))

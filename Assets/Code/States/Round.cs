@@ -31,6 +31,7 @@ namespace Code.States
             //DestroyBalls(2f); // 2 sec delay so that the ball doesn't disappear immediately after lose condition
             GameObjectsContainer.Instance.pitFallDetector.gameObject.SetActive(false);
             GameObjectsContainer.Instance.invisibleWalls.SetActive(false);
+            GameObjectsContainer.Instance.mainPlayableBottle.dragMovementControl.Timer = 0;
         }
 
         public override void InvokeEvent(EventId eventId)

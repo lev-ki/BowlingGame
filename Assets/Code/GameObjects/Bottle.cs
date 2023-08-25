@@ -19,8 +19,8 @@ namespace Code.GameObjects
 
         #region controls
 
-        [SerializeField] private PinKeyboardControls keyboardControls;
-        [SerializeField] private PinDragMovementControl dragMovementControl;
+        public PinKeyboardControls keyboardControls;
+        public PinDragMovementControl dragMovementControl;
 
         public void EnableControls()
         {
