@@ -18,11 +18,12 @@ namespace Code.DataContainers
             }
             Instance = this;
         }
-        
+
         #endregion
 
         #region camera
-        
+
+        [Header("Camera")]
         public CustomCameraController customCameraController;
         public Animator cameraAnimator;
         public Transform cameraFollowTarget;
@@ -34,17 +35,26 @@ namespace Code.DataContainers
 
         #region pourLiquid
 
-        public Animator pourLiquidAnimator;
-        public Renderer jugWater;
+        [Header("Scoring Cinematic")]
+        public Transform pourLiquidBottle;
+        public Transform bottleRestingPosition;
+        public Transform bottlePouringPosition;
+        public ParticleSystem pourLiquidParticleSystemPrefab;
+        public Transform particleSystemParent;
 
-        public AudioSource poppingSoundSource;
-        
+        public Renderer liquidSource;
+        public Renderer liquidDestination;
+
         #endregion
 
         #region light
-        
+
+        [Header("Light")]
         public Light pinPositionsHighlight;
-        
+
         #endregion
+
+        [Header("Other")]
+        public AudioSource poppingSoundSource;
     }
 }

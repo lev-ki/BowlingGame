@@ -91,6 +91,9 @@ namespace Code.States.Cinematic
                 coc.cameraFollowTarget.DOMove(coc.cameraScorePosition.position, transitionDuration);
                 coc.cameraFollowTarget.DORotateQuaternion(coc.cameraScorePosition.rotation, transitionDuration);
 
+                coc.liquidSource.material.SetFloat(Shader.PropertyToID("_Fill"), ProgressionContainer.Instance.currentScore);
+                coc.liquidDestination.material.SetFloat(Shader.PropertyToID("_Fill"), 0);
+
                 DOVirtual.DelayedCall(transitionDuration, () => { GameManager.Instance.InvokeEvent(EventId.CinematicFinished); });
             });
         }
