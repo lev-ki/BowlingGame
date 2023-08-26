@@ -592,7 +592,7 @@ MonoBehaviour:
   star3: {fileID: 8633370357252711359}
   neonAudio: {fileID: 1111713374}
   scoreText: {fileID: 1346298597942049499}
-  scorePanelButtonText: {fileID: 2943944834116431789}
+  scorePanelButtonText: {fileID: 0}
   scorePanelCurrentLevelText: {fileID: 3825444106854203851}
   hud: {fileID: 6417819394338162946}
   currentLevelText: {fileID: 1019957268718054969}
@@ -1041,18 +1041,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22b8f5080b8c4423add127dc46f679d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2943944834116431789 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2921150455581492190, guid: dc69f84e06172c24baa33a9483ae0fc6,
-    type: 3}
-  m_PrefabInstance: {fileID: 529826994566349718}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3604569589442064321 stripped

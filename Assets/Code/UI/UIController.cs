@@ -22,6 +22,8 @@ namespace Code.Menu
         [SerializeField] private Image blackFadeImage;
         [SerializeField] private RectTransform chargeIndicator;
 
+        [SerializeField] private GameObject popupBackground;
+
         public bool allowGameplayActions;
 
         private void Start()
@@ -98,18 +100,21 @@ namespace Code.Menu
 
         public void Quit()
         {
+            popupBackground.SetActive(true);
             quitPanel.SetActive(true);
             InputManager.Instance.block3DRaycast = true;
         }
 
         public void DenyQuit()
         {
+            popupBackground.SetActive(false);
             quitPanel.SetActive(false);
             InputManager.Instance.block3DRaycast = false;
         }
 
         public void ConfirmQuit()
         {
+            popupBackground.SetActive(false);
             quitPanel.SetActive(true);
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.ExitPlaymode();
@@ -122,28 +127,33 @@ namespace Code.Menu
 
         public void ShowSettings()
         {
+            popupBackground.SetActive(true);
             // todo
         }
 
         public void CloseSettings()
         {
+            popupBackground.SetActive(false);
             // todo
         }
 
         public void ShowCredits()
         {
+            popupBackground.SetActive(true);
             credits.SetActive(true);
             InputManager.Instance.block3DRaycast = true;
         }
 
         public void CloseCredits()
         {
+            popupBackground.SetActive(false);
             credits.SetActive(false);
             InputManager.Instance.block3DRaycast = false;
         }
 
         public void OpenTutorial()
         {
+            popupBackground.SetActive(true);
             UIContainer.Instance.tutorialPanel.SetActive(true);
             GameManager.Instance.SetPause(true, "tutorial");
             InputManager.Instance.block3DRaycast = true;
@@ -151,6 +161,7 @@ namespace Code.Menu
 
         public void CloseTutorial()
         {
+            popupBackground.SetActive(false);
             UIContainer.Instance.tutorialPanel.SetActive(false);
             if (!UIContainer.Instance.ftuxCompleted)
             {
@@ -167,6 +178,7 @@ namespace Code.Menu
 
         public void OpenPausePanel()
         {
+            popupBackground.SetActive(true);
             UIContainer.Instance.pausePanel.SetActive(true);
             GameManager.Instance.SetPause(true, "uiPause");
             InputManager.Instance.block3DRaycast = true;
@@ -174,6 +186,7 @@ namespace Code.Menu
 
         public void ClosePausePanel()
         {
+            popupBackground.SetActive(false);
             UIContainer.Instance.pausePanel.SetActive(false);
             GameManager.Instance.SetPause(false, "uiPause");
             InputManager.Instance.block3DRaycast = false;
