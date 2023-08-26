@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class SplashToPuddle : MonoBehaviour
 {
-    public ParticleSystem splashParticleSystem;
-    public ParticleSystem bottleBreakParticleSystem;
-    public ParticleSystem puddleParticleSystem;
+    [SerializeField] private ParticleSystem splashParticleSystem;
+    [SerializeField] private ParticleSystem bottleBreakParticleSystem;
+    [SerializeField] private ParticleSystem puddleParticleSystem;
+    [SerializeField] private Vector3 spawnOffset;
 
-    private ParticleSystem currentPuddle;
-
-    public List<ParticleCollisionEvent> collisionEvents;
-    public Vector3 spawnOffset;
+    private List<ParticleCollisionEvent> collisionEvents;
+    
     void Start()
     {
         collisionEvents = new List<ParticleCollisionEvent>();
@@ -19,18 +18,20 @@ public class SplashToPuddle : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        if (other == splashParticleSystem.gameObject || other == bottleBreakParticleSystem.gameObject )
+        if (other != splashParticleSystem.gameObject && other != bottleBreakParticleSystem.gameObject)
         {
-            bool isBottleBreak = other == bottleBreakParticleSystem.gameObject;
-            (isBottleBreak? bottleBreakParticleSystem : splashParticleSystem).GetCollisionEvents(gameObject, collisionEvents);
+            return;
+        }
+        bool isBottleBreak = other == bottleBreakParticleSystem.gameObject;
+        var affectedPs = (isBottleBreak ? bottleBreakParticleSystem : splashParticleSystem);
+        affectedPs.GetCollisionEvents(gameObject, collisionEvents);
 
-            foreach (var e in collisionEvents)
-            {
-                currentPuddle = Instantiate(puddleParticleSystem, e.intersection + spawnOffset, Quaternion.identity);
-                currentPuddle.Play();
+        foreach (var e in collisionEvents)
+        {
+            var currentPuddle = Instantiate(puddleParticleSystem, e.intersection + spawnOffset, Quaternion.identity);
+            currentPuddle.Play();
 
-                Destroy(currentPuddle.gameObject, 2);
-            }
+            Destroy(currentPuddle.gameObject, 2);
         }
     }
 }
