@@ -1107,21 +1107,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1388940905411263825, guid: dc69f84e06172c24baa33a9483ae0fc6,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 1388940905411263825, guid: dc69f84e06172c24baa33a9483ae0fc6,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 1388940905411263825, guid: dc69f84e06172c24baa33a9483ae0fc6,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 2667642783977739280, guid: dc69f84e06172c24baa33a9483ae0fc6,
         type: 3}
       propertyPath: mainCamera
@@ -1152,16 +1137,6 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1442866555}
-    - target: {fileID: 8032331172022911121, guid: dc69f84e06172c24baa33a9483ae0fc6,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 8032331172022911121, guid: dc69f84e06172c24baa33a9483ae0fc6,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.32
-      objectReference: {fileID: 0}
     - target: {fileID: 9056531783327260803, guid: dc69f84e06172c24baa33a9483ae0fc6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
