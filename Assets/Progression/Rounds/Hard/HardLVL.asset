@@ -18,6 +18,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d4e0511b1e3690d4c84d971fdbdccaa9, type: 2}
   - {fileID: 11400000, guid: 617242700a775de47ba31996a1e627e2, type: 2}
   - {fileID: 11400000, guid: 762af50d3c584f14180df585dfe22f6a, type: 2}
-  shouldBeRandomBallPosition: 1
+  shouldBeRandomBottlePosition: 1
   bottlePosition: 0
+  failRestartsLevel: 0
   pinPositions: 00000000010000000200000003000000040000000500000006000000070000000800000009000000

@@ -44,7 +44,8 @@ MonoBehaviour:
     preDelay: 1
     postDelay: 0
     ballSpeed: 5
-  resetPins: 0
+  resetPins: 1
   resetBottle: 1
   spillThreshold: 20
   spillSpeed: 1.5
+  roundEndTimer: 15

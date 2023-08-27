@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 980cbe4275514690a051e66a43e4695c, type: 3}
-  m_Name: HardLVLRound5DODELAT
+  m_Name: HardLVLRound5
   m_EditorClassIdentifier: 
   ballLaunchDelay: 0.2
   launches:
@@ -19,44 +19,93 @@ MonoBehaviour:
     spawnPositionHorizontal: -1
     preDelay: 0
     postDelay: 0
-    ballSpeed: 1
+    ballSpeed: 2
   - shouldTargetBottle: 0
     shootingAngleHorizontal: -0.69
     spawnPositionHorizontal: -0.7
     preDelay: 0.1
     postDelay: 0
-    ballSpeed: 1
+    ballSpeed: 2
   - shouldTargetBottle: 0
     shootingAngleHorizontal: -0.37
     spawnPositionHorizontal: -0.37
     preDelay: 0.1
     postDelay: 0
-    ballSpeed: 1
+    ballSpeed: 2
   - shouldTargetBottle: 0
     shootingAngleHorizontal: 0.01
     spawnPositionHorizontal: 0.02
     preDelay: 0.1
     postDelay: 0
-    ballSpeed: 1
+    ballSpeed: 2
   - shouldTargetBottle: 0
     shootingAngleHorizontal: 0.32
     spawnPositionHorizontal: 0.32
     preDelay: 0.1
     postDelay: 0
-    ballSpeed: 1
+    ballSpeed: 2
   - shouldTargetBottle: 0
     shootingAngleHorizontal: 1
     spawnPositionHorizontal: 1
     preDelay: 0.1
     postDelay: 0
-    ballSpeed: 1
+    ballSpeed: 2
   - shouldTargetBottle: 0
     shootingAngleHorizontal: 0.69
     spawnPositionHorizontal: 0.69
     preDelay: 0.1
+    postDelay: 3
+    ballSpeed: 2
+  - shouldTargetBottle: 0
+    shootingAngleHorizontal: -1
+    spawnPositionHorizontal: -1
+    preDelay: 0
     postDelay: 0
-    ballSpeed: 1
+    ballSpeed: 6
+  - shouldTargetBottle: 0
+    shootingAngleHorizontal: -0.69
+    spawnPositionHorizontal: -0.7
+    preDelay: 0.1
+    postDelay: 0
+    ballSpeed: 6
+  - shouldTargetBottle: 0
+    shootingAngleHorizontal: -0.37
+    spawnPositionHorizontal: -0.37
+    preDelay: 0.1
+    postDelay: 0
+    ballSpeed: 6
+  - shouldTargetBottle: 0
+    shootingAngleHorizontal: 0.01
+    spawnPositionHorizontal: 0.02
+    preDelay: 0.1
+    postDelay: 0
+    ballSpeed: 6
+  - shouldTargetBottle: 0
+    shootingAngleHorizontal: 0.32
+    spawnPositionHorizontal: 0.32
+    preDelay: 0.1
+    postDelay: 0
+    ballSpeed: 6
+  - shouldTargetBottle: 0
+    shootingAngleHorizontal: 0.69
+    spawnPositionHorizontal: 0.69
+    preDelay: 0.1
+    postDelay: 3
+    ballSpeed: 6
+  - shouldTargetBottle: 1
+    shootingAngleHorizontal: 0.69
+    spawnPositionHorizontal: 0.69
+    preDelay: 0.1
+    postDelay: 0
+    ballSpeed: 6
+  - shouldTargetBottle: 1
+    shootingAngleHorizontal: 0.69
+    spawnPositionHorizontal: 0.69
+    preDelay: 1
+    postDelay: 0
+    ballSpeed: 4
   resetPins: 1
   resetBottle: 1
   spillThreshold: 20
   spillSpeed: 1.5
+  roundEndTimer: 30
