@@ -8,7 +8,7 @@ namespace Code.Progression
     {
         public List<Round> rounds;
     
-        public bool shouldBeRandomBallPosition = true;
+        public bool shouldBeRandomBottlePosition = true;
         public int bottlePosition = 5;
     
         /**

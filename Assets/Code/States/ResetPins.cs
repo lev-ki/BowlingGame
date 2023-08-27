@@ -78,12 +78,17 @@ namespace Code.States
             yield return new WaitForSeconds(1f);
             objectsTotal = round.resetPins ? level.pinPositions.Count : 1;
             objectsTotal -= resetBottle ? 0 : 1;
+            var bottlePosition = level.bottlePosition;
+            if (level.shouldBeRandomBottlePosition)
+            {
+                bottlePosition = level.pinPositions[Random.Range(0, level.pinPositions.Count)];
+            }
             foreach (int pinPosition in level.pinPositions)
             {
                 yield return new WaitForSeconds(0.2f);
                 Vector3 fallOffset = Vector3.up * (8 + Random.value);
                 PopIntoExistence pie;
-                if (pinPosition == level.bottlePosition)
+                if (pinPosition == bottlePosition)
                 {
                     if (!resetBottle)
                     {
