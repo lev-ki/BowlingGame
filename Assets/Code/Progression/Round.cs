@@ -16,6 +16,8 @@ namespace Code.Progression
 
         public float spillThreshold = 20;
         public float spillSpeed = 1;
+        
+        public float roundEndTimer = 30;
 
         [Serializable]
         public class BallLaunch

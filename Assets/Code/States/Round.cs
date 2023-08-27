@@ -10,14 +10,17 @@ namespace Code.States
     public class Round : BaseState
     {
         private Coroutine ballsCoroutine;
+        private Tween roundTimer;
         private int ballsPresent;
         private bool allBallsThrown;
+        private bool allBallsFellCalled;
 
         public override void OnEnter()
         {
             base.OnEnter();
             GameObjectsContainer.Instance.pitFallDetector.gameObject.SetActive(true);
             GameObjectsContainer.Instance.invisibleWalls.SetActive(true);
+            allBallsFellCalled = false;
             //DestroyBalls(0);
         }
 
@@ -32,6 +35,7 @@ namespace Code.States
             GameObjectsContainer.Instance.pitFallDetector.gameObject.SetActive(false);
             GameObjectsContainer.Instance.invisibleWalls.SetActive(false);
             GameObjectsContainer.Instance.mainPlayableBottle.dragMovementControl.Timer = 0;
+            roundTimer.Kill();
         }
 
         public override void InvokeEvent(EventId eventId)
@@ -52,9 +56,10 @@ namespace Code.States
         {
             ballsPresent -= 1;
             Debug.Log($"{ballsPresent} balls left");
-            if (allBallsThrown && ballsPresent == 0)
+            if (allBallsThrown && ballsPresent == 0 && !allBallsFellCalled)
             {
-                ballsPresent = -1;
+                allBallsFellCalled = true;
+                roundTimer.Kill();
                 GameManager.Instance.InvokeEvent(EventId.AllBallsFell);
             }
         }
@@ -62,6 +67,15 @@ namespace Code.States
         private void OnStartBalls()
         {
             ballsCoroutine = GameManager.Instance.StartCoroutine(BallsCoroutine());
+            roundTimer = DOVirtual.DelayedCall(ProgressionContainer.Instance.CurrentRound.roundEndTimer, () =>
+            {
+                if (allBallsFellCalled)
+                {
+                    return;
+                }
+                allBallsFellCalled = true;
+                GameManager.Instance.InvokeEvent(EventId.AllBallsFell);
+            });
         }
 
         private IEnumerator BallsCoroutine()
