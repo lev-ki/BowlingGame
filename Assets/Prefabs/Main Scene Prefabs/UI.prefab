@@ -1550,15 +1550,15 @@ RectTransform:
   - {fileID: 5940943660231217691}
   - {fileID: 7867286598829530355}
   - {fileID: 8243295602365006621}
-  - {fileID: 3996968464369639848}
+  - {fileID: 5426818826924287469}
   - {fileID: 5259365727574842031}
+  - {fileID: 4958870083004890930}
+  - {fileID: 3996968464369639848}
   - {fileID: 4411938247094323148}
   - {fileID: 3045362765819437688}
   - {fileID: 1749118031108985672}
   - {fileID: 564331223699256602}
-  - {fileID: 5426818826924287469}
   - {fileID: 2531394809799965264}
-  - {fileID: 4958870083004890930}
   - {fileID: 5546107083593742769}
   m_Father: {fileID: 807381454567712305}
   m_RootOrder: -1
@@ -3617,13 +3617,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Oh, hello there, my bottle friend!
-
-    Looks like somebody <i>accidentally</i>
-    left you on a bowling lane.
-
-    Well, there''s no way around it, <u>you have
-    to dodge those bowling balls</u> rushing your way. <u>And don''t spill any liquid!</u>'
+  m_text: "Oh, hello there, my bottle friend!\nLooks like somebody <i>accidentally</i>
+    left you on a bowling lane.\nWell, there's no way around it, <u>you have to dodge
+    those bowling balls</u> \nrushing your way. <u>And don't spill any liquid!</u>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 192f35205903e05439e19e2f00dba630, type: 2}
   m_sharedMaterial: {fileID: -2329409871078591818, guid: 192f35205903e05439e19e2f00dba630,
@@ -12277,7 +12273,8 @@ AudioSource:
   m_GameObject: {fileID: 7559552817999754706}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4772864150932254515, guid: 9e36e237cca6c81439df953950417072,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 713e9f044e6574140bff1b285b74bd6c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -13962,7 +13959,8 @@ AudioSource:
   m_GameObject: {fileID: 8985188704180073689}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8493558748073532259, guid: 9e36e237cca6c81439df953950417072,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: e81f916096fe2f04280adc7692e7b5c2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.182

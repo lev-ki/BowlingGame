@@ -917,12 +917,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 701187259271979951, guid: dc69f84e06172c24baa33a9483ae0fc6,
-        type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: -8493558748073532259, guid: 9e36e237cca6c81439df953950417072,
-        type: 2}
     - target: {fileID: 807381454567712305, guid: dc69f84e06172c24baa33a9483ae0fc6,
         type: 3}
       propertyPath: m_RootOrder
@@ -978,12 +972,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1098336753890823153, guid: dc69f84e06172c24baa33a9483ae0fc6,
-        type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 4772864150932254515, guid: 9e36e237cca6c81439df953950417072,
-        type: 2}
     - target: {fileID: 2667642783977739280, guid: dc69f84e06172c24baa33a9483ae0fc6,
         type: 3}
       propertyPath: mainCamera
