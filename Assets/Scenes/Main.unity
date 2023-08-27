@@ -735,10 +735,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - {fileID: 11400000, guid: 824b2f6dca69a514997fdba580a44a80, type: 2}
   - {fileID: 11400000, guid: 3f9f3c14800d3044f9b90c1f5a1d43f2, type: 2}
   - {fileID: 11400000, guid: 72e382c05de960742bc58231a7ec637a, type: 2}
   - {fileID: 11400000, guid: 64ec0aa0bcb710943926b3653f01abcf, type: 2}
+  - {fileID: 11400000, guid: 824b2f6dca69a514997fdba580a44a80, type: 2}
   currentLevelIndex: 0
   currentRoundIndex: 0
   currentScore: 0

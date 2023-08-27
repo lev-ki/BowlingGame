@@ -120,7 +120,7 @@ Transform:
   - {fileID: 6200426362496107144}
   - {fileID: 5441998328427089784}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2717846152639416602
 Rigidbody:
@@ -370,7 +370,7 @@ MonoBehaviour:
   rb: {fileID: 2717846152639416602}
   floorMask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 3072
 --- !u!120 &2097266581182733340
 LineRenderer:
   serializedVersion: 2

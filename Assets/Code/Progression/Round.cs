@@ -12,7 +12,7 @@ namespace Code.Progression
         public List<BallLaunch> launches;
 
         public bool resetPins;
-        [Obsolete] public bool resetBottle;
+        public bool resetBottle;
 
         public float spillThreshold = 20;
         public float spillSpeed = 1;

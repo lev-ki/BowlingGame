@@ -405,7 +405,7 @@ MonoBehaviour:
   rb: {fileID: 6846958830711951386}
   floorMask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 3584
 --- !u!114 &2530543041550022741
 MonoBehaviour:
   m_ObjectHideFlags: 0
