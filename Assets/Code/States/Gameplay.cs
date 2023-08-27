@@ -66,7 +66,6 @@ namespace Code.States
                         // in case that's not the last round
                         ProgressionContainer.Instance.CurrentRoundIndex += 1;
                     
-                        ProgressionContainer.Instance.runtimeBottleRoundStartOptions.resetBottle |= ProgressionContainer.Instance.CurrentRound.resetBottle;
                         GameManager.Instance.InvokeEvent(EventId.StartNewRound);
                     });
                     // return to prevent new round from starting

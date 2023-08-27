@@ -76,7 +76,7 @@ namespace Code.States
             var goc = GameObjectsContainer.Instance;
             var resetBottle = ProgressionContainer.Instance.runtimeBottleRoundStartOptions.resetBottle || goc.mainPlayableBottle.bottleBreakController.IsBroken;
             yield return new WaitForSeconds(1f);
-            objectsTotal = round.resetPins ? level.pinPositions.Count : 1;
+            objectsTotal = level.pinPositions.Count;
             objectsTotal -= resetBottle ? 0 : 1;
             var bottlePosition = level.bottlePosition;
             if (level.shouldBeRandomBottlePosition)
