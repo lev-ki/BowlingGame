@@ -8,12 +8,15 @@ namespace Code.Bowling
         [SerializeField] private LayerMask ballMask;
         [SerializeField] private LayerMask pinMask;
         [SerializeField] private LayerMask bottleMask;
+
+        private const string FallenTag = "FallenBall";
         
         private void OnTriggerEnter(Collider other)
         {
-            if ((1 << other.gameObject.layer & ballMask) != 0)
+            if (!other.CompareTag(FallenTag) && (1 << other.gameObject.layer & ballMask) != 0)
             {
                 GameManager.Instance.InvokeEvent(EventId.BallFell);
+                other.gameObject.tag = FallenTag;
                 // ball despawn logic
             }
             if ((1 << other.gameObject.layer & pinMask) != 0)
