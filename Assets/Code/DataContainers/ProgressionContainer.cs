@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Code.Progression;
 using UnityEngine;
 
@@ -52,6 +53,15 @@ namespace Code.DataContainers
         }
 
         public float currentScore;
+        public Dictionary<int, float> levelScores = new();
+        
+        public float TotalScore
+        {
+            get
+            {
+                return levelScores.Aggregate(0.0f, (sum, pair) => sum + pair.Value);
+            }
+        }
         
         [Serializable]
         public struct RuntimeBottleRoundStartOptions

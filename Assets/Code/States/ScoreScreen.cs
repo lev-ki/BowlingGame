@@ -42,6 +42,9 @@ namespace Code.States
         {
             var ui = UIContainer.Instance;
             float scaledScore = score * 100;
+            
+            ProgressionContainer.Instance.levelScores[ProgressionContainer.Instance.CurrentLevelIndex] = scaledScore;
+            
             float star1Brightness = Mathf.InverseLerp(0, 1/3.0f, score);
             float star2Brightness = Mathf.InverseLerp(1/3.0f, 2/3.0f, score);
             float star3Brightness = Mathf.InverseLerp(2/3.0f, 1, score);
