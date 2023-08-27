@@ -72,19 +72,26 @@ namespace Code.States
                     // return to prevent new round from starting
                     return;
                 case EventId.BottleDrained:
-                    winCallback.Kill();
-                    RefillBottle();
+                    Fail();
                     break;
                 case EventId.BottleFell:
-                    winCallback.Kill();
-                    RefillBottle();
+                    Fail();
                     break;
                 case EventId.BottleBroken:
-                    winCallback.Kill();
-                    RefillBottle();
+                    Fail();
                     break;
             }
             base.InvokeEvent(eventId);
+        }
+
+        private void Fail()
+        {
+            winCallback.Kill();
+            if (ProgressionContainer.Instance.CurrentLevel.failRestartsLevel)
+            {
+                ProgressionContainer.Instance.CurrentRoundIndex = 0;
+            }
+            RefillBottle();
         }
     }
 }

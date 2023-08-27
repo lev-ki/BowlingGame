@@ -10,11 +10,12 @@ namespace Code.Progression
     
         public bool shouldBeRandomBottlePosition = true;
         public int bottlePosition = 5;
+        public bool failRestartsLevel;
     
         /**
-     * pin positions to be set
-     * includes the bottle position
-     */
+         * pin positions to be set
+         * includes the bottle position
+         */
         public List<int> pinPositions;
     }
 }
