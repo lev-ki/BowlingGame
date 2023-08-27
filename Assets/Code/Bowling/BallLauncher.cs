@@ -1,6 +1,6 @@
 ﻿using Code.DataContainers;
+using Code.Progression;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Code.Bowling
 {
@@ -8,22 +8,25 @@ namespace Code.Bowling
     {
         [SerializeField] private Transform ballsContainer;
         [SerializeField] private Rigidbody ballPrefab;
-        [SerializeField] private float maxRandomStartDistance;
-        [SerializeField] private float maxRandomForce;
-        [SerializeField] private float highThrowMultiplier;
+        [SerializeField] private float laneHalfWidth;
         [SerializeField] private float throwForceMultiplier;
+        
+        private readonly Vector3 centerTargetPoint = new(7, 0.5f, 0);
 
-        public void Launch()
+        public void Launch(Round.BallLaunch launch)
         {
-            Vector3 startPosition = transform.position + Random.insideUnitSphere * maxRandomStartDistance;
+            Vector3 startPosition = transform.position + Vector3.right * (launch.spawnPositionHorizontal * laneHalfWidth);
             var ballRb = Instantiate(ballPrefab, startPosition, Quaternion.identity, ballsContainer);
             var bottle = GameObjectsContainer.Instance.mainPlayableBottle;
-        
-            Vector3 force = bottle.transform.position - startPosition;
+
+            var targetPosition = bottle.transform.position;
+            if (!launch.shouldTargetBottle)
+            {
+                targetPosition = centerTargetPoint + Vector3.right * (launch.shootingAngleHorizontal * laneHalfWidth);
+            }
+            Vector3 force = targetPosition - startPosition;
             force *= throwForceMultiplier;
-            force *= ProgressionContainer.Instance.CurrentRound.ballSpeedMultiplier;
-            force += Vector3.up * highThrowMultiplier;
-            force += Random.insideUnitSphere * maxRandomForce;
+            force *= launch.ballSpeed;
         
             ballRb.AddForce(force, ForceMode.Impulse);
             GameObjectsContainer.Instance.spotlightFollow.AppendTarget(ballRb.transform);

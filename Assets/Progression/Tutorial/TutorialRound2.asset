@@ -12,15 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980cbe4275514690a051e66a43e4695c, type: 3}
   m_Name: TutorialRound2
   m_EditorClassIdentifier: 
-  ballsNumber: 1
-  ballSpeedMultiplier: 1
   ballLaunchDelay: 0.2
-  ballIntermediateLaunchDelays: []
-  restartRoundOnly: 0
+  launches:
+  - shouldTargetBottle: 0
+    shootingAngleHorizontal: 0
+    spawnPositionHorizontal: 0
+    preDelay: 0
+    postDelay: 0
+    ballSpeed: 1
+  - shouldTargetBottle: 0
+    shootingAngleHorizontal: 0
+    spawnPositionHorizontal: -0.6
+    preDelay: 0
+    postDelay: 0
+    ballSpeed: 1
+  - shouldTargetBottle: 0
+    shootingAngleHorizontal: 0
+    spawnPositionHorizontal: 0.6
+    preDelay: 0
+    postDelay: 2
+    ballSpeed: 1
   resetPins: 0
-  fallTriggersCleaner: 0
-  wallTouchIsFall: 0
+  resetBottle: 0
   spillThreshold: 20
   spillSpeed: 1
-  spillMaxThreshold: 80
-  liquidRanOutTriggersCleaner: 1

@@ -71,22 +71,18 @@ namespace Code.States
             var round = ProgressionContainer.Instance.CurrentRound;
             yield return new WaitForSeconds(round.ballLaunchDelay);
             GameObjectsContainer.Instance.spotlightFollow.ClearTargets();
-            for (int i = 0; i < round.ballsNumber; i++)
+            foreach (var launch in round.launches)
             {
-                LaunchBall();
-                float launchDelay = round.ballLaunchDelay;
-                if (i < round.ballIntermediateLaunchDelays.Count - 1)
-                {
-                    launchDelay = round.ballIntermediateLaunchDelays[i];
-                }
-                yield return new WaitForSeconds(launchDelay);
+                yield return new WaitForSeconds(launch.preDelay);
+                LaunchBall(launch);
+                yield return new WaitForSeconds(launch.postDelay);
             }
             allBallsThrown = true;
         }
         
-        private void LaunchBall()
+        private void LaunchBall(Progression.Round.BallLaunch launch)
         {
-            GameObjectsContainer.Instance.ballLauncher.Launch();
+            GameObjectsContainer.Instance.ballLauncher.Launch(launch);
             ballsPresent += 1;
         }
     }

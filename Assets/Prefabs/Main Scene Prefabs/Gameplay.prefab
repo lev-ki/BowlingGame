@@ -401,10 +401,8 @@ MonoBehaviour:
   ballsContainer: {fileID: 4606063667534015456}
   ballPrefab: {fileID: 2277923743398388485, guid: 886441feab5db964baf93ef17ef3078e,
     type: 3}
-  maxRandomStartDistance: 1
-  maxRandomForce: 1
-  highThrowMultiplier: 1
-  throwForceMultiplier: 1
+  laneHalfWidth: 3.5
+  throwForceMultiplier: 3
 --- !u!1 &869379064886375964
 GameObject:
   m_ObjectHideFlags: 0

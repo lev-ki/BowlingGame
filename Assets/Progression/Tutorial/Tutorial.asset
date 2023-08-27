@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0352ea9d59bf884483112a7fcac7be5, type: 3}
-  m_Name: Level1
+  m_Name: Tutorial
   m_EditorClassIdentifier: 
-  rounds: []
-  shouldBeRandomBallPosition: 1
-  bottlePosition: 5
-  pinPositions: 
+  rounds:
+  - {fileID: 11400000, guid: dba6d134bc6144041bb4d4c557efef8f, type: 2}
+  - {fileID: 11400000, guid: 9b2ac4c87ce5f4a4cbdc0d6bb0c1e17e, type: 2}
+  shouldBeRandomBallPosition: 0
+  bottlePosition: 4
+  pinPositions: 00000000010000000200000004000000060000000800000009000000

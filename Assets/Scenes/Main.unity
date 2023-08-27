@@ -354,6 +354,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &489279259 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2635691333569488456, guid: dc69f84e06172c24baa33a9483ae0fc6,
+    type: 3}
+  m_PrefabInstance: {fileID: 529826994566349718}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &496852695 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3839698740285493153, guid: dc69f84e06172c24baa33a9483ae0fc6,
@@ -592,7 +604,7 @@ MonoBehaviour:
   star3: {fileID: 8633370357252711359}
   neonAudio: {fileID: 1111713374}
   scoreText: {fileID: 1346298597942049499}
-  scorePanelButtonText: {fileID: 0}
+  scorePanelButtonText: {fileID: 489279259}
   scorePanelCurrentLevelText: {fileID: 3825444106854203851}
   hud: {fileID: 6417819394338162946}
   currentLevelText: {fileID: 1019957268718054969}
@@ -617,14 +629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - {fileID: 11400000, guid: 43bb7268fbcab934fa74cec4d28edf20, type: 2}
-  - {fileID: 11400000, guid: f95d8d021a9b64c41bc065679371fba4, type: 2}
-  - {fileID: 11400000, guid: dd93c481f264694469530dbf96d92cad, type: 2}
-  - {fileID: 11400000, guid: 4c10a3093b1d40e489a2139da567c3e4, type: 2}
-  - {fileID: 11400000, guid: e53962f65ff6646449e4a76728603669, type: 2}
-  - {fileID: 11400000, guid: c7ff4e719063cd74e87fc1cf7c62997e, type: 2}
-  - {fileID: 11400000, guid: 16981b42fbb7dd84ca17a4646894192b, type: 2}
-  - {fileID: 11400000, guid: 547208ec7153dd44aaa9a1ee2d8b6931, type: 2}
+  - {fileID: 11400000, guid: 3f9f3c14800d3044f9b90c1f5a1d43f2, type: 2}
   currentLevelIndex: 0
   currentRoundIndex: 0
   currentScore: 0
