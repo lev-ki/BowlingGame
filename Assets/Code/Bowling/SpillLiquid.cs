@@ -23,7 +23,7 @@ namespace Code.Bowling
             set
             {
                 UIContainer.Instance.liquidLevelImage.SetLevel(value);
-                waterRenderer.material.SetFloat(FillShaderPropertyID, liquidLevel);
+                waterRenderer.material.SetFloat(FillShaderPropertyID, value);
                 if (value < liquidLevel)
                 {
                     if(bottleBroken)
