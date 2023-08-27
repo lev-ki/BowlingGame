@@ -59,7 +59,9 @@ namespace Code.States.Cinematic
             {new(CameraLocation.Menu, CameraLocation.Game), CustomActionFromMenuToGame},
             {new(CameraLocation.Game, CameraLocation.Score), CustomActionFromGameToScore},
             {new(CameraLocation.Score, CameraLocation.Game), CustomActionFromScoreToGame},
-            {new(CameraLocation.Any, CameraLocation.Menu), CustomActionFromScoreToGame},
+            {new(CameraLocation.Score, CameraLocation.Menu), CustomActionToMenu },
+            {new(CameraLocation.Game, CameraLocation.Menu), CustomActionToMenu },
+
         };
         
         private static void CustomActionFromMenuToGame()

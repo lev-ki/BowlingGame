@@ -90,6 +90,16 @@ namespace Code
         void Update()
         {
             cursorPosition = Input.mousePosition;
+#if UNITY_EDITOR
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                Time.timeScale -= 0.1f;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                Time.timeScale += 0.1f;
+            }
+#endif
         }
     }
 }
