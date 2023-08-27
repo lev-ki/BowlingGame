@@ -69,6 +69,15 @@ namespace Code.DataContainers
 
         #endregion
 
+        #region settings
+
+        public Settings settings;
+        public GameObject settingsPanel;
+        public TextMeshProUGUI resolutionText;
+        public TextMeshProUGUI fullscreenText;
+
+        #endregion
+
         #region returnToLane
 
         public TextMeshProUGUI returnTime;

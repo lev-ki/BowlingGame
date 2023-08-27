@@ -128,12 +128,15 @@ namespace Code.Menu
         public void ShowSettings()
         {
             popupBackground.SetActive(true);
-            // todo
+            UIContainer.Instance.settingsPanel.SetActive(true);
+            InputManager.Instance.block3DRaycast = true;
         }
 
         public void CloseSettings()
         {
             popupBackground.SetActive(false);
+            UIContainer.Instance.settingsPanel.SetActive(false);
+            InputManager.Instance.block3DRaycast = false;
             // todo
         }
 

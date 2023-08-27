@@ -5,19 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Archive/OLD_Drag prototype.unity
-    guid: aa31d8ce4f9960c42abb0c1b39460ecc
-  - enabled: 0
-    path: Assets/Scenes/Archive/OLD_WASD Prototype.unity
-    guid: 3fb39a7a7dc3f7947b4c5478ea3b54af
-  - enabled: 0
-    path: Assets/Scenes/Archive/OLD_Main.unity
-    guid: c27e0c306998e5c46826da2bd2ea4228
-  - enabled: 0
-    path: Assets/Scenes/Archive/OLD_Day1_v3 Logic.unity
-    guid: 2b838c9831f222942aeaea763ffd268a
   - enabled: 1
-    path: Assets/Scenes/Archive/OLD_Day1_v6 Logic.unity
-    guid: 833e62afd5ce8f242a742c30f7b07e10
+    path: Assets/Scenes/Main.unity
+    guid: d99e8b15838b5cb458842a09fb4de2b1
   m_configObjects: {}
