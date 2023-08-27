@@ -24,3 +24,4 @@ MonoBehaviour:
   resetBottle: 1
   spillThreshold: 20
   spillSpeed: 1
+  roundEndTimer: 15
