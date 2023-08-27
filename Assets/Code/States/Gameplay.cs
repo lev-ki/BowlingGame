@@ -1,4 +1,5 @@
 ﻿using Code.DataContainers;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Code.States
@@ -6,6 +7,8 @@ namespace Code.States
     [CreateAssetMenu(fileName = "Gameplay", menuName = "SO/GameStates/Gameplay", order = 0)]
     public class Gameplay : BaseState
     {
+        private Tween winCallback;
+        
         public override void OnEnter()
         {
             // here might go some save/load logic
@@ -52,25 +55,31 @@ namespace Code.States
             switch (eventId)
             {
                 case EventId.AllBallsFell:
-                    if (ProgressionContainer.Instance.CurrentLevel.rounds.Count - 1 == ProgressionContainer.Instance.CurrentRoundIndex)
+                    winCallback = DOVirtual.DelayedCall(2, () =>
                     {
-                        ProgressionContainer.Instance.currentScore = GameObjectsContainer.Instance.mainPlayableBottle.spillLiquid.LiquidLevel;
-                        GameManager.Instance.InvokeEvent(EventId.AllRoundsFinished);
-                        // return to prevent new round from starting
-                        return;
-                    }
-                    // in case that's not the last round
-                    ProgressionContainer.Instance.CurrentRoundIndex += 1;
+                        if (ProgressionContainer.Instance.CurrentLevel.rounds.Count - 1 == ProgressionContainer.Instance.CurrentRoundIndex)
+                        {
+                            ProgressionContainer.Instance.currentScore = GameObjectsContainer.Instance.mainPlayableBottle.spillLiquid.LiquidLevel;
+                            GameManager.Instance.InvokeEvent(EventId.AllRoundsFinished);
+                            return;
+                        }
+                        // in case that's not the last round
+                        ProgressionContainer.Instance.CurrentRoundIndex += 1;
                     
-                    ProgressionContainer.Instance.runtimeBottleRoundStartOptions.resetBottle |= ProgressionContainer.Instance.CurrentRound.resetBottle;
-                    break;
+                        ProgressionContainer.Instance.runtimeBottleRoundStartOptions.resetBottle |= ProgressionContainer.Instance.CurrentRound.resetBottle; 
+                    });
+                    // return to prevent new round from starting
+                    return;
                 case EventId.BottleDrained:
+                    winCallback.Kill();
                     RefillBottle();
                     break;
                 case EventId.BottleFell:
+                    winCallback.Kill();
                     RefillBottle();
                     break;
                 case EventId.BottleBroken:
+                    winCallback.Kill();
                     RefillBottle();
                     break;
             }
