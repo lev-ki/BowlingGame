@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0352ea9d59bf884483112a7fcac7be5, type: 3}
+  m_Name: HardLVL
+  m_EditorClassIdentifier: 
+  rounds:
+  - {fileID: 11400000, guid: 536b952320ed8254a8bf9c7433d48208, type: 2}
+  - {fileID: 11400000, guid: 4807c74da1e83b94396ca6ea77f4c5cf, type: 2}
+  - {fileID: 11400000, guid: d4e0511b1e3690d4c84d971fdbdccaa9, type: 2}
+  - {fileID: 11400000, guid: 617242700a775de47ba31996a1e627e2, type: 2}
+  - {fileID: 11400000, guid: 762af50d3c584f14180df585dfe22f6a, type: 2}
+  shouldBeRandomBallPosition: 1
+  bottlePosition: 0
+  pinPositions: 00000000010000000200000003000000040000000500000006000000070000000800000009000000

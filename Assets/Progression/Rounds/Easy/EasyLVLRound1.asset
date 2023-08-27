@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 980cbe4275514690a051e66a43e4695c, type: 3}
-  m_Name: TutorialRound1
+  m_Name: EasyLVLRound1
   m_EditorClassIdentifier: 
   ballLaunchDelay: 0.2
   launches:
   - shouldTargetBottle: 1
-    shootingAngleHorizontal: 0.41
-    spawnPositionHorizontal: 0.01
+    shootingAngleHorizontal: 0.03
+    spawnPositionHorizontal: 0.75
     preDelay: 0
     postDelay: 0
-    ballSpeed: 1.5
+    ballSpeed: 3
   resetPins: 1
   resetBottle: 1
   spillThreshold: 20
-  spillSpeed: 1
+  spillSpeed: 1.5
