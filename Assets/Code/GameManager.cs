@@ -105,8 +105,10 @@ namespace Code
 
         StartingPinOrBottleHitGround,
         ReadyToStartBalls,
-        BallFell
+        BallFell,
 
         #endregion
+        
+        StartNewRound
     }
 }

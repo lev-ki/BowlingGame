@@ -17,7 +17,7 @@ MonoBehaviour:
   transitions:
   - source: {fileID: 11400000, guid: c06f681cb13c7134a951e1902214ef14, type: 2}
     anySource: 0
-    reason: 6
+    reason: 15
     target: {fileID: 11400000, guid: c06f681cb13c7134a951e1902214ef14, type: 2}
   - source: {fileID: 11400000, guid: c06f681cb13c7134a951e1902214ef14, type: 2}
     anySource: 0

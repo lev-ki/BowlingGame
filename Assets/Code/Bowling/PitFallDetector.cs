@@ -6,7 +6,6 @@ namespace Code.Bowling
     public class PitFallDetector : MonoBehaviour
     {
         [SerializeField] private LayerMask ballMask;
-        [SerializeField] private LayerMask pinMask;
         [SerializeField] private LayerMask bottleMask;
 
         private const string FallenTag = "FallenBall";
@@ -17,11 +16,6 @@ namespace Code.Bowling
             {
                 GameManager.Instance.InvokeEvent(EventId.BallFell);
                 other.gameObject.tag = FallenTag;
-                // ball despawn logic
-            }
-            if ((1 << other.gameObject.layer & pinMask) != 0)
-            {
-                // pin despawn logic
             }
             if ((1 << other.gameObject.layer & bottleMask) != 0)
             {
