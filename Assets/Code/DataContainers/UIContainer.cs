@@ -26,34 +26,40 @@ namespace Code.DataContainers
 
         #region visuals
 
+        [Header("Visuals")]
         public GameObject gameName3d;
         public GameObject tutorialGeneral3d;
         public GameObject tutorialSandbox3d;
         public GameObject mainMenu3d;
         
         public LiquidLevelImage liquidLevelImage;
-        
+
         #endregion
 
         #region logic
 
+        [Header("Logic")]
         public UIController UIController;
 
         #endregion
 
         #region scorePanel
-        
+
+        [Header("Score Panel")]
         public GameObject scorePanel;
         public Image star1, star2, star3;
         public AudioSource neonAudio;
         public TextMeshProUGUI scoreText;
         public TextMeshProUGUI scorePanelButtonText;
         public TextMeshProUGUI scorePanelCurrentLevelText;
+        public GameObject summaryPanel;
+        public TextMeshProUGUI summaryScoreText;
 
         #endregion
-        
+
         #region hud
-        
+
+        [Header("HUD")]
         public GameObject hud;
         
         public TextMeshProUGUI currentLevelText;
@@ -71,6 +77,7 @@ namespace Code.DataContainers
 
         #region settings
 
+        [Header("Settings")]
         public Settings settings;
         public GameObject settingsPanel;
         public TextMeshProUGUI resolutionText;
@@ -80,6 +87,7 @@ namespace Code.DataContainers
 
         #region returnToLane
 
+        [Header("Return To Lane")]
         public TextMeshProUGUI returnTime;
         public GameObject returnToLane;
 
@@ -87,6 +95,7 @@ namespace Code.DataContainers
 
         #region levelSelection
 
+        [Header("Level Selection")]
         public LevelSelection levelSelection;
 
         #endregion

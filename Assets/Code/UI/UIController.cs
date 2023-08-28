@@ -105,6 +105,21 @@ namespace Code.Menu
             }
         }
 
+        public void OpenSummaryPanel()
+        {
+            popupBackground.SetActive(true);
+            InputManager.Instance.block3DRaycast = true;
+            UIContainer.Instance.summaryPanel.SetActive(true);
+            UIContainer.Instance.summaryScoreText.text = $"{ProgressionContainer.Instance.TotalScore} points!";
+        }
+
+        public void CloseSummaryPanel()
+        {
+            popupBackground.SetActive(false);
+            InputManager.Instance.block3DRaycast = false;
+            UIContainer.Instance.summaryPanel.SetActive(false);
+        }
+
         private void OpenLevelSelection()
         {
             popupBackground.SetActive(true);

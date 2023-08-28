@@ -9,6 +9,7 @@ namespace Code.States
     [CreateAssetMenu(fileName = "Round", menuName = "SO/GameStates/Round", order = 0)]
     public class Round : BaseState
     {
+        private const string FallenTag = "FallenBall";
         private Coroutine ballsCoroutine;
         private Tween roundTimer;
         private int ballsPresent;
@@ -66,6 +67,11 @@ namespace Code.States
 
         private void OnStartBalls()
         {
+            foreach(Ball ball in GameObjectsContainer.Instance.balls)
+            {
+                ball.gameObject.tag = FallenTag;
+            }
+
             ballsCoroutine = GameManager.Instance.StartCoroutine(BallsCoroutine());
             roundTimer = DOVirtual.DelayedCall(ProgressionContainer.Instance.CurrentRound.roundEndTimer, () =>
             {

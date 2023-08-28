@@ -24,11 +24,19 @@ namespace Code.States
             UIContainer.Instance.scorePanel.SetActive(false);
         }
         
+        public void SummaryPanelButtonCallback()
+        {
+            GameManager.Instance.InvokeEvent(EventId.ScoringMenuSelected);
+            UIContainer.Instance.UIController.CloseSummaryPanel();
+        }
+
         public void ScorePanelButtonCallback()
         {
             if (ProgressionContainer.Instance.CurrentLevelIndex == ProgressionContainer.Instance.levels.Count - 1)
             {
-                GameManager.Instance.InvokeEvent(EventId.ScoringMenuSelected);
+                GameManager.Instance.StopCoroutine(scorePanelCoroutine);
+                UIContainer.Instance.scorePanel.SetActive(false);
+                UIContainer.Instance.UIController.OpenSummaryPanel();
             }
             else
             {
