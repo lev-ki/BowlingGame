@@ -54,7 +54,8 @@ namespace Code.DataContainers
 
         public float currentScore;
         public Dictionary<int, float> levelScores = new();
-        
+        public Dictionary<int, float> roundScores = new();
+
         public float TotalScore
         {
             get

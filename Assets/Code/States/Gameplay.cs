@@ -1,5 +1,6 @@
 ﻿using Code.DataContainers;
 using DG.Tweening;
+using System.Linq;
 using UnityEngine;
 
 namespace Code.States
@@ -57,13 +58,16 @@ namespace Code.States
                 case EventId.AllBallsFell:
                     winCallback = DOVirtual.DelayedCall(2, () =>
                     {
+                        ProgressionContainer.Instance.roundScores[ProgressionContainer.Instance.CurrentRoundIndex] = GameObjectsContainer.Instance.mainPlayableBottle.spillLiquid.LiquidLevel;
                         if (ProgressionContainer.Instance.CurrentLevel.rounds.Count - 1 == ProgressionContainer.Instance.CurrentRoundIndex)
                         {
-                            ProgressionContainer.Instance.currentScore = GameObjectsContainer.Instance.mainPlayableBottle.spillLiquid.LiquidLevel;
+                            ProgressionContainer.Instance.currentScore = ProgressionContainer.Instance.roundScores.Aggregate(0.0f, (sum, pair) => sum + pair.Value) / ProgressionContainer.Instance.CurrentLevel.rounds.Count;
+                            ProgressionContainer.Instance.roundScores = new();
                             GameManager.Instance.InvokeEvent(EventId.AllRoundsFinished);
                             return;
                         }
                         // in case that's not the last round
+                        GameObjectsContainer.Instance.mainPlayableBottle.spillLiquid.LiquidLevel = 1;
                         ProgressionContainer.Instance.CurrentRoundIndex += 1;
 
                         ProgressionContainer.Instance.runtimeBottleRoundStartOptions.resetBottle |= ProgressionContainer.Instance.CurrentRound.resetBottle;
