@@ -74,5 +74,7 @@ namespace Code.DataContainers
         public enum GameMode {Levels, Sandbox}
         
         public GameMode selectedMode;
+
+        public bool levelSelectionUnlocked;
     }
 }

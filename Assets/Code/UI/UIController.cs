@@ -29,6 +29,7 @@ namespace Code.Menu
         private void Start()
         {
             UIContainer.Instance.maxLevelText.text = ProgressionContainer.Instance.levels.Count.ToString();
+            UIContainer.Instance.levelSelection.Initialize();
         }
 
         private void Update()
@@ -76,8 +77,14 @@ namespace Code.Menu
                         switch (target.optionType)
                         {
                             case OptionType.Play:
-                                ProgressionContainer.Instance.selectedMode = ProgressionContainer.GameMode.Levels;
-                                GameManager.Instance.InvokeEvent(EventId.MenuPlayClicked);
+                                if (ProgressionContainer.Instance.levelSelectionUnlocked)
+                                {
+                                    OpenLevelSelection();
+                                }
+                                else
+                                {
+                                    PlayLevelFromStart(0);
+                                }
                                 break;
                             case OptionType.Sandbox:
                                 ProgressionContainer.Instance.selectedMode = ProgressionContainer.GameMode.Sandbox;
@@ -96,6 +103,42 @@ namespace Code.Menu
                     }
                 }
             }
+        }
+
+        private void OpenLevelSelection()
+        {
+            popupBackground.SetActive(true);
+            UIContainer.Instance.levelSelection.gameObject.SetActive(true);
+            InputManager.Instance.block3DRaycast = true;
+        }
+
+        public void CloseLevelSelection(int selectedLevel = -1)
+        {
+            popupBackground.SetActive(false);
+            UIContainer.Instance.levelSelection.gameObject.SetActive(false);
+            InputManager.Instance.block3DRaycast = false;
+            if (selectedLevel >= 0)
+            {
+                PlayLevelFromStart(selectedLevel);
+            }
+        }
+
+        public void PlayLevelFromStart(int level = 0)
+        {
+            PlayLevel(level, 0);
+        }
+
+        private void PlayLevel(int level, int round)
+        {
+            if (level >= 0)
+            {
+                ProgressionContainer.Instance.CurrentLevelIndex = Mathf.Min(level, ProgressionContainer.Instance.levels.Count - 1);
+            }
+
+            ProgressionContainer.Instance.CurrentRoundIndex = Mathf.Clamp(round, 0, ProgressionContainer.Instance.CurrentLevel.rounds.Count - 1);
+
+            ProgressionContainer.Instance.selectedMode = ProgressionContainer.GameMode.Levels;
+            GameManager.Instance.InvokeEvent(EventId.MenuPlayClicked);
         }
 
         public void Quit()

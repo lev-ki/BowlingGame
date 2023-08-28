@@ -42,7 +42,9 @@ namespace Code.States
         {
             var ui = UIContainer.Instance;
             float scaledScore = score * 100;
-            
+
+            UIContainer.Instance.levelSelection.UpdateScore(ProgressionContainer.Instance.CurrentLevelIndex, scaledScore);
+
             ProgressionContainer.Instance.levelScores[ProgressionContainer.Instance.CurrentLevelIndex] = scaledScore;
             
             float star1Brightness = Mathf.InverseLerp(0, 1/3.0f, score);
@@ -54,6 +56,7 @@ namespace Code.States
             if (ProgressionContainer.Instance.CurrentLevelIndex == ProgressionContainer.Instance.levels.Count - 1)
             {
                 ui.scorePanelButtonText.text = "To Menu";
+                ProgressionContainer.Instance.levelSelectionUnlocked = true;
             }
             ui.scoreText.text = ((int)scaledScore).ToString();
             ui.neonAudio.Play();

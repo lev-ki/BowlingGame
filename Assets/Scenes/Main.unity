@@ -722,6 +722,7 @@ MonoBehaviour:
   fullscreenText: {fileID: 1932614993}
   returnTime: {fileID: 187933567}
   returnToLane: {fileID: 1883319967}
+  levelSelection: {fileID: 1570123480}
 --- !u!114 &1559728008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,6 +747,7 @@ MonoBehaviour:
     refillBottle: 0
     resetBottle: 0
   selectedMode: 0
+  levelSelectionUnlocked: 0
 --- !u!114 &1559728009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -832,6 +834,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1570123480 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 447547291764272983, guid: dc69f84e06172c24baa33a9483ae0fc6,
+    type: 3}
+  m_PrefabInstance: {fileID: 529826994566349718}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d780587f8ac77be43be1234a9de5c901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1651663388 stripped
@@ -1045,6 +1059,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 76696921404547761, guid: dc69f84e06172c24baa33a9483ae0fc6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 79434517794330738, guid: dc69f84e06172c24baa33a9483ae0fc6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1110,6 +1129,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 899121572428423371, guid: dc69f84e06172c24baa33a9483ae0fc6,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 899121572428423371, guid: dc69f84e06172c24baa33a9483ae0fc6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2667642783977739280, guid: dc69f84e06172c24baa33a9483ae0fc6,
         type: 3}
       propertyPath: mainCamera
@@ -1120,6 +1149,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1442866555}
+    - target: {fileID: 5332746970221005263, guid: dc69f84e06172c24baa33a9483ae0fc6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332746970221005263, guid: dc69f84e06172c24baa33a9483ae0fc6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1198002768}
+    - target: {fileID: 5332746970221005263, guid: dc69f84e06172c24baa33a9483ae0fc6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseLevelSelection
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332746970221005263, guid: dc69f84e06172c24baa33a9483ae0fc6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5858636605618386963, guid: dc69f84e06172c24baa33a9483ae0fc6,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1135,6 +1184,11 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1442866555}
+    - target: {fileID: 6627743059062615790, guid: dc69f84e06172c24baa33a9483ae0fc6,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7649681370710967570, guid: dc69f84e06172c24baa33a9483ae0fc6,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target

@@ -84,5 +84,11 @@ namespace Code.DataContainers
         public GameObject returnToLane;
 
         #endregion
+
+        #region levelSelection
+
+        public LevelSelection levelSelection;
+
+        #endregion
     }
 }

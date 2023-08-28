@@ -35,7 +35,7 @@ namespace Code.States
                 GameObjectsContainer.Instance.mainPlayableBottle.gameObject.SetActive(false);
             }
             
-            CinematicObjectsContainer.Instance.pinPositionsHighlight.intensity = 1;
+            
             
             objectsFallen = 0;
             placePinsCoroutine = GameManager.Instance.StartCoroutine(PlacePinsCoroutine());
@@ -75,7 +75,9 @@ namespace Code.States
             var round = ProgressionContainer.Instance.CurrentRound;
             var goc = GameObjectsContainer.Instance;
             var resetBottle = ProgressionContainer.Instance.runtimeBottleRoundStartOptions.resetBottle || goc.mainPlayableBottle.bottleBreakController.IsBroken;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
+            CinematicObjectsContainer.Instance.pinPositionsHighlight.intensity = 1;
+            yield return new WaitForSeconds(0.5f);
             objectsTotal = level.pinPositions.Count;
             objectsTotal -= resetBottle ? 0 : 1;
             var bottlePosition = level.bottlePosition;
