@@ -15,6 +15,7 @@ MonoBehaviour:
   rounds:
   - {fileID: 11400000, guid: dba6d134bc6144041bb4d4c557efef8f, type: 2}
   - {fileID: 11400000, guid: 9b2ac4c87ce5f4a4cbdc0d6bb0c1e17e, type: 2}
-  shouldBeRandomBallPosition: 0
+  shouldBeRandomBottlePosition: 0
   bottlePosition: 4
+  failRestartsLevel: 0
   pinPositions: 0000000001000000020000000400000006000000070000000800000009000000

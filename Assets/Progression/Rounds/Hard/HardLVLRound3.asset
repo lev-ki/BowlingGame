@@ -19,13 +19,13 @@ MonoBehaviour:
     spawnPositionHorizontal: 0
     preDelay: 0
     postDelay: 0
-    ballSpeed: 1
+    ballSpeed: 1.5
   - shouldTargetBottle: 0
     shootingAngleHorizontal: -1
     spawnPositionHorizontal: -1
     preDelay: 0
     postDelay: 0
-    ballSpeed: 1.5
+    ballSpeed: 2.5
   - shouldTargetBottle: 0
     shootingAngleHorizontal: -0.75
     spawnPositionHorizontal: -0.75
@@ -37,19 +37,19 @@ MonoBehaviour:
     spawnPositionHorizontal: 0.749
     preDelay: 0
     postDelay: 0
-    ballSpeed: 1.5
+    ballSpeed: 1
   - shouldTargetBottle: 0
     shootingAngleHorizontal: 1
     spawnPositionHorizontal: 1
     preDelay: 0
     postDelay: 0
-    ballSpeed: 1.5
+    ballSpeed: 2
   - shouldTargetBottle: 0
     shootingAngleHorizontal: 0
     spawnPositionHorizontal: 0
-    preDelay: 5
+    preDelay: 3
     postDelay: 0
-    ballSpeed: 5
+    ballSpeed: 7.2
   resetPins: 1
   resetBottle: 1
   spillThreshold: 20
