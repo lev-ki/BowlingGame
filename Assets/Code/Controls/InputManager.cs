@@ -14,7 +14,7 @@ namespace Code
         {
             if (Instance != null)
             {
-                Debug.LogError("Duplicate ProgressionContainer found!");
+                Debug.LogError("Duplicate InputManager found!");
             }
             Instance = this;
         }
