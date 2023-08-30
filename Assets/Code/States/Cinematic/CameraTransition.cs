@@ -96,8 +96,8 @@ namespace Code.States.Cinematic
                 coc.liquidSource.material.SetFloat(Shader.PropertyToID("_Fill"), ProgressionContainer.Instance.currentScore);
                 coc.liquidDestination.material.SetFloat(Shader.PropertyToID("_Fill"), 0);
 
-                DOVirtual.DelayedCall(transitionDuration, () => { GameManager.Instance.InvokeEvent(EventId.CinematicFinished); });
-            });
+                DOVirtual.DelayedCall(transitionDuration, () => { GameManager.Instance.InvokeEvent(EventId.CinematicFinished); }, false);
+            }, false);
         }
 
         private static void CustomActionFromScoreToGame()
@@ -129,7 +129,7 @@ namespace Code.States.Cinematic
             coc.cameraFollowTarget.DOMove(coc.cameraMenuPosition.position, transitionDuration);
             coc.cameraFollowTarget.DORotateQuaternion(coc.cameraMenuPosition.rotation, transitionDuration);
 
-            DOVirtual.DelayedCall(transitionDuration, () => { GameManager.Instance.InvokeEvent(EventId.CinematicFinished); });
+            DOVirtual.DelayedCall(transitionDuration, () => { GameManager.Instance.InvokeEvent(EventId.CinematicFinished); }, false);
         }
 
         #endregion

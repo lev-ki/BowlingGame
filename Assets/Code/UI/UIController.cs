@@ -278,7 +278,7 @@ namespace Code.Menu
             blackFadeImage.DOFade(1, duration);
             if (fadeOutAfter)
             {
-                DOVirtual.DelayedCall(duration + 0.5f, ()=> { FadeFromBlack(duration); });
+                DOVirtual.DelayedCall(duration + 0.5f, ()=> { FadeFromBlack(duration); }, false);
             }
         }
 

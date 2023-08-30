@@ -18,7 +18,7 @@ namespace Code.Bowling
                 }
                 GameManager.Instance.InvokeEvent(EventId.BallFell);
                 other.gameObject.tag = FallenTag;
-            });
+            }, false);
         }
     }
 }

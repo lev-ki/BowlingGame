@@ -73,7 +73,7 @@ namespace Code.States
                         ProgressionContainer.Instance.runtimeBottleRoundStartOptions.resetBottle |= ProgressionContainer.Instance.CurrentRound.resetBottle;
 
                         GameManager.Instance.InvokeEvent(EventId.StartNewRound);
-                    });
+                    }, false);
                     // return to prevent new round from starting
                     return;
                 case EventId.BottleDrained:

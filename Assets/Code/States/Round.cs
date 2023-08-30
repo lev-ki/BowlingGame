@@ -81,7 +81,7 @@ namespace Code.States
                 }
                 allBallsFellCalled = true;
                 GameManager.Instance.InvokeEvent(EventId.AllBallsFell);
-            });
+            }, false);
         }
 
         private IEnumerator BallsCoroutine()
