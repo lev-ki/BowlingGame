@@ -70,7 +70,7 @@ namespace Code.States
                             return;
                         }
                         // in case that's not the last round
-                        UIContainer.Instance.UIController.ShowRoundResult($"Round {ProgressionContainer.Instance.CurrentRoundIndex + 1} completed! You got {(int)(GameObjectsContainer.Instance.mainPlayableBottle.spillLiquid.LiquidLevel * 100)} points");
+                        UIContainer.Instance.UIController.ShowRoundResult($"Stage {ProgressionContainer.Instance.CurrentRoundIndex + 1} completed!");
                         GameObjectsContainer.Instance.mainPlayableBottle.spillLiquid.LiquidLevel = 1;
                         ProgressionContainer.Instance.CurrentRoundIndex += 1;
 

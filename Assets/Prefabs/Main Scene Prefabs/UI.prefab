@@ -5538,7 +5538,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 9
+  m_text: 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 297d0f469e046cd4397da7eafe8840a5, type: 2}
   m_sharedMaterial: {fileID: 6222884264582827481, guid: 297d0f469e046cd4397da7eafe8840a5,
@@ -12760,7 +12760,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2531394809799965264
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15974,7 +15974,7 @@ PrefabInstance:
     - target: {fileID: 429300805751273565, guid: d521eab6fca7c554da96840121e71b48,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 429300805751273565, guid: d521eab6fca7c554da96840121e71b48,
         type: 3}
@@ -15984,7 +15984,7 @@ PrefabInstance:
     - target: {fileID: 429300805751273565, guid: d521eab6fca7c554da96840121e71b48,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 429300805751273565, guid: d521eab6fca7c554da96840121e71b48,
         type: 3}

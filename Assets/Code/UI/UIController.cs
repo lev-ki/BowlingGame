@@ -120,7 +120,7 @@ namespace Code.Menu
                                 }
                                 else
                                 {
-                                    PlayLevelFromStart(0);
+                                    PlayLevelFromStart(-1);
                                 }
                                 break;
                             case OptionType.Sandbox:
