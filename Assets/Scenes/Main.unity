@@ -506,6 +506,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8487495270173346209}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &905062987 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5642147014804010168, guid: dc69f84e06172c24baa33a9483ae0fc6,
+    type: 3}
+  m_PrefabInstance: {fileID: 529826994566349718}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &938079634 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5126288345358530408, guid: edbe38d1a70c0a64e950caef066830d3,
@@ -709,7 +721,7 @@ MonoBehaviour:
   scorePanelButtonText: {fileID: 489279259}
   scorePanelCurrentLevelText: {fileID: 3825444106854203851}
   summaryPanel: {fileID: 529826994566349719}
-  summaryScoreText: {fileID: 0}
+  summaryScoreText: {fileID: 905062987}
   hud: {fileID: 6417819394338162946}
   currentLevelText: {fileID: 1019957268718054969}
   currentRoundText: {fileID: 3604569589442064321}

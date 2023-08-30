@@ -110,7 +110,7 @@ namespace Code.Menu
             popupBackground.SetActive(true);
             InputManager.Instance.block3DRaycast = true;
             UIContainer.Instance.summaryPanel.SetActive(true);
-            UIContainer.Instance.summaryScoreText.text = $"{ProgressionContainer.Instance.TotalScore} points!";
+            UIContainer.Instance.summaryScoreText.text = $"{(int)ProgressionContainer.Instance.TotalScore} points!";
         }
 
         public void CloseSummaryPanel()
