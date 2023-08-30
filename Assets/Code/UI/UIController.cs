@@ -5,6 +5,7 @@ using Code.States.Cinematic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using Code.Bowling;
 
 namespace Code.Menu
 {
@@ -26,14 +27,50 @@ namespace Code.Menu
 
         public bool allowGameplayActions;
 
+        public bool showReturnToLaneTimer;
+        private bool returnToLaneTimerVisible = false;
+        private Tween laneTextAlphaTween;
+
+        private Sequence roundResultSequence;
+
         private void Start()
         {
             UIContainer.Instance.maxLevelText.text = ProgressionContainer.Instance.levels.Count.ToString();
             UIContainer.Instance.levelSelection.Initialize();
         }
 
+        public void ShowRoundResult(string text)
+        {
+            if (roundResultSequence != null)
+            {
+                roundResultSequence.Kill();
+            }
+            UIContainer.Instance.roundResultText.text = text;
+            roundResultSequence = DOTween.Sequence()
+                .Append(DOTween.To(() => UIContainer.Instance.roundResult.alpha, (x) => UIContainer.Instance.roundResult.alpha = x, 1, 0.25f))
+                .AppendInterval(2f)
+                .Append(DOTween.To(() => UIContainer.Instance.roundResult.alpha, (x) => UIContainer.Instance.roundResult.alpha = x, 0, 1f));
+        }
+
+        private void ToggleReturToLaneTimer(bool newState)
+        {
+            if (newState == returnToLaneTimerVisible)
+            {
+                return;
+            }
+
+            if (laneTextAlphaTween != null)
+            {
+                laneTextAlphaTween.Kill();
+            }
+            returnToLaneTimerVisible = newState;
+            laneTextAlphaTween = DOTween.To(()=> UIContainer.Instance.returnToLane.alpha, (x)=> UIContainer.Instance.returnToLane.alpha = x, newState ? 1 : 0, 0.25f);
+        }
+
         private void Update()
         {
+            ToggleReturToLaneTimer(showReturnToLaneTimer && InvisibleWall.TryShowTimer);
+
             if (InputManager.Instance.PauseInputActivated())
             {
                 if (IsPausePanelOpened())

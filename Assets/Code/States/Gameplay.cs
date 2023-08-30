@@ -23,6 +23,9 @@ namespace Code.States
             }
             RefillBottle();
             ShowGameplayUI();
+            CinematicObjectsContainer.Instance.musicSource.Stop();
+            CinematicObjectsContainer.Instance.musicSource.clip = CinematicObjectsContainer.Instance.gameplayMusic;
+            CinematicObjectsContainer.Instance.musicSource.Play();
             base.OnEnter();
         }
 
@@ -67,6 +70,7 @@ namespace Code.States
                             return;
                         }
                         // in case that's not the last round
+                        UIContainer.Instance.UIController.ShowRoundResult($"Round {ProgressionContainer.Instance.CurrentRoundIndex + 1} completed! You got {(int)(GameObjectsContainer.Instance.mainPlayableBottle.spillLiquid.LiquidLevel * 100)} points");
                         GameObjectsContainer.Instance.mainPlayableBottle.spillLiquid.LiquidLevel = 1;
                         ProgressionContainer.Instance.CurrentRoundIndex += 1;
 

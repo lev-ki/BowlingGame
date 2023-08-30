@@ -56,5 +56,7 @@ namespace Code.DataContainers
 
         [Header("Other")]
         public AudioSource poppingSoundSource;
+        public AudioSource musicSource;
+        public AudioClip menuMusic, gameplayMusic;
     }
 }

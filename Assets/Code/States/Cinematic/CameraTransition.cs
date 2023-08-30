@@ -11,7 +11,10 @@ namespace Code.States.Cinematic
     {
         [SerializeField] private CameraLocation src;
         [SerializeField] private CameraLocation dst;
-        
+
+        private static Sequence menuToGameSequence;
+        private static Sequence scoreToGameSequence;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -30,6 +33,14 @@ namespace Code.States.Cinematic
             base.OnExit();
             _mapping[src].SrcAfter();
             _mapping[dst].DstAfter();
+            if (menuToGameSequence != null)
+            {
+                menuToGameSequence.Kill();
+            }
+            if (scoreToGameSequence != null)
+            {
+                scoreToGameSequence.Kill();
+            }
         }
 
 
@@ -75,10 +86,10 @@ namespace Code.States.Cinematic
             coc.cameraFollowTarget.DOMove(coc.cameraGameplayPosition.position, transitionDuration);
             coc.cameraFollowTarget.DORotateQuaternion(coc.cameraGameplayPosition.rotation, transitionDuration);
 
-            Sequence sequence = DOTween.Sequence();
-            sequence.AppendInterval(transitionDuration);
-            sequence.AppendCallback(() => { GameManager.Instance.InvokeEvent(EventId.CinematicFinished); });
-            sequence.AppendInterval(postTransitionDelay);
+            menuToGameSequence = DOTween.Sequence()
+                .AppendInterval(transitionDuration)
+                .AppendCallback(() => { GameManager.Instance.InvokeEvent(EventId.CinematicFinished); })
+                .AppendInterval(postTransitionDelay);
         }
         
         private static void CustomActionFromGameToScore()
@@ -112,11 +123,11 @@ namespace Code.States.Cinematic
             coc.cameraFollowTarget.DOMove(coc.cameraGameplayPosition.position, transitionDuration);
             coc.cameraFollowTarget.DORotateQuaternion(coc.cameraGameplayPosition.rotation, transitionDuration);
 
-            Sequence sequence = DOTween.Sequence();
-            sequence.AppendInterval(transitionDuration);
-            sequence.AppendCallback(() => { GameManager.Instance.InvokeEvent(EventId.CinematicFinished); });
-            sequence.AppendInterval(postTransitionDelay);
-            sequence.AppendCallback(() => { coc.customCameraController.SetOrbitTarget(bottleTransform, new Vector3(0, 5, -12)); });
+            scoreToGameSequence = DOTween.Sequence()
+                .AppendInterval(transitionDuration)
+                .AppendCallback(() => { GameManager.Instance.InvokeEvent(EventId.CinematicFinished); })
+                .AppendInterval(postTransitionDelay)
+                .AppendCallback(() => { coc.customCameraController.SetOrbitTarget(bottleTransform, new Vector3(0, 5, -12)); });
         }
         
         public static void CustomActionToMenu()

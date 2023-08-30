@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Code.DataContainers;
+using System;
 using UnityEngine;
 
 namespace Code.Bowling
@@ -20,6 +21,7 @@ namespace Code.Bowling
             if ((1 << other.gameObject.layer & bottleMask) != 0)
             {
                 GameManager.Instance.InvokeEvent(EventId.BottleFell);
+                UIContainer.Instance.UIController.ShowRoundResult("You fell! How unfortunate");
             }
         }
     }

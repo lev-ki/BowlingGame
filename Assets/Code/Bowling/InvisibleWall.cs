@@ -13,6 +13,8 @@ namespace Code.Bowling
         [SerializeField] private float timeTillLose;
         
         private static readonly Queue<InvisibleWall> ShownQueue = new();
+
+        public static bool TryShowTimer => ShownQueue.Count > 0;
         
         private bool isInWall;
         private float timer;
@@ -22,7 +24,7 @@ namespace Code.Bowling
             set
             {
                 timer = value;
-                UIContainer.Instance.returnTime.text = timer.ToString();
+                UIContainer.Instance.returnTime.text = $"{(int)timer}";
             }
         }
 
@@ -41,7 +43,6 @@ namespace Code.Bowling
                 {
                     ShownQueue.Dequeue();
                 }
-                UIContainer.Instance.returnToLane.SetActive(ShownQueue.Count > 0);
             }
         }
 
@@ -84,6 +85,7 @@ namespace Code.Bowling
             {
                 GameManager.Instance.InvokeEvent(EventId.BottleFell);
                 Timer = timeTillLose;
+                UIContainer.Instance.UIController.ShowRoundResult("Stay on the lane");
             }
         }
 

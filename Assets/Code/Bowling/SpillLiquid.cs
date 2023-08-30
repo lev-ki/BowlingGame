@@ -71,6 +71,7 @@ namespace Code.Bowling
                         {
                             LiquidLevel = 0;
                             GameManager.Instance.InvokeEvent(EventId.BottleDrained);
+                            UIContainer.Instance.UIController.ShowRoundResult("You spilled all the liquid! Do better next time");
                         }
                     }
                 }

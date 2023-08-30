@@ -60,6 +60,7 @@ namespace Code.Bowling
             IsBroken = true;
             GameObjectsContainer.Instance.mainPlayableBottle.spillLiquid.BreakBottle();
             GameManager.Instance.InvokeEvent(EventId.BottleBroken);
+            UIContainer.Instance.UIController.ShowRoundResult("Oh no, you're broken! Let's find another bottle...");
         }
     }
 }

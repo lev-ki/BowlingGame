@@ -15,13 +15,21 @@ namespace Code.States
         private int ballsPresent;
         private bool allBallsThrown;
         private bool allBallsFellCalled;
+        private Tween disableInvisibleWallsTween;
 
         public override void OnEnter()
         {
             base.OnEnter();
             GameObjectsContainer.Instance.pitFallDetector.gameObject.SetActive(true);
-            GameObjectsContainer.Instance.invisibleWalls.SetActive(true);
             allBallsFellCalled = false;
+
+            if (disableInvisibleWallsTween != null)
+            {
+                disableInvisibleWallsTween.Kill();
+            }
+
+            GameObjectsContainer.Instance.invisibleWalls.SetActive(true);
+            UIContainer.Instance.UIController.showReturnToLaneTimer = true;
             //DestroyBalls(0);
         }
 
@@ -34,7 +42,8 @@ namespace Code.States
             }
             //DestroyBalls(2f); // 2 sec delay so that the ball doesn't disappear immediately after lose condition
             GameObjectsContainer.Instance.pitFallDetector.gameObject.SetActive(false);
-            GameObjectsContainer.Instance.invisibleWalls.SetActive(false);
+            UIContainer.Instance.UIController.showReturnToLaneTimer = false;
+            disableInvisibleWallsTween = DOVirtual.DelayedCall(0.25f, ()=> GameObjectsContainer.Instance.invisibleWalls.SetActive(false), false);
             GameObjectsContainer.Instance.mainPlayableBottle.dragMovementControl.Timer = 0;
             roundTimer.Kill();
         }

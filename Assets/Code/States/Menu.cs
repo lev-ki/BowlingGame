@@ -10,6 +10,9 @@ namespace Code.States
         {
             //UIContainer.Instance.menuController.enabled = true;
             UIContainer.Instance.gameName3d.SetActive(true);
+            CinematicObjectsContainer.Instance.musicSource.Stop();
+            CinematicObjectsContainer.Instance.musicSource.clip = CinematicObjectsContainer.Instance.menuMusic;
+            CinematicObjectsContainer.Instance.musicSource.Play();
         }
 
         public override void OnExit()

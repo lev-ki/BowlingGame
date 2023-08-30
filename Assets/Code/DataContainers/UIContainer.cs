@@ -73,6 +73,9 @@ namespace Code.DataContainers
 
         public bool ftuxCompleted = false;
 
+        public TextMeshProUGUI roundResultText;
+        public CanvasGroup roundResult;
+
         #endregion
 
         #region settings
@@ -89,7 +92,7 @@ namespace Code.DataContainers
 
         [Header("Return To Lane")]
         public TextMeshProUGUI returnTime;
-        public GameObject returnToLane;
+        public CanvasGroup returnToLane;
 
         #endregion
 
